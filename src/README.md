@@ -18,3 +18,5 @@ pageClass: homepage
 
 <!-- # Homepage
 This is home -->
+
+<Home/>
