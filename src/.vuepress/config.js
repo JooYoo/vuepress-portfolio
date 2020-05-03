@@ -1,4 +1,5 @@
 module.exports = {
+  plugins: ['@vuepress/back-to-top'],
   title: "Yu",
   description: "My awesome portfolio blog",
   themeConfig: {
@@ -27,10 +28,11 @@ module.exports = {
       ]
     }
   },
-  plugins: [
-    // "social-share",
-    // {
-    //   networks: ["twitter", "facebook", "reddit", "instagram"],
-    // },
-  ],
+  // plugins: [
+  //   // "social-share",
+  //   // {
+  //   //   networks: ["twitter", "facebook", "reddit", "instagram"],
+  //   // },
+  //   '@vuepress/back-to-top'
+  // ],
 };
