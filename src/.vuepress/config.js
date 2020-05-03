@@ -1,5 +1,5 @@
 module.exports = {
-    title: 'Preetish HS',
+    title: 'Yu',
     description: 'My awesome portfolio blog',
     themeConfig: {
       nav: [
