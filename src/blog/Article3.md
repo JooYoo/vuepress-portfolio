@@ -3,6 +3,7 @@ title: My third blog
 description: Basic intro to vuepress
 author: Preetish HS
 type: blog
+# sidebar: auto
 ---
 
 # My third blog
