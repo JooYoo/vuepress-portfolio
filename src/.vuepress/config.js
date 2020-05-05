@@ -1,6 +1,6 @@
 module.exports = {
   plugins: ['@vuepress/back-to-top'],
-  title: "Yu",
+  title: "Yu💻",
   description: "My awesome portfolio blog",
   themeConfig: {
     nav: [

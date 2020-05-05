@@ -1,16 +1,52 @@
-.theme-container.homepage {
-  .hero {
-    img {
-      width: 100%;
-      object-fit: cover;
-      margin: 30px 0 0 0;
-    }
-  }
+.theme-container {
   .home {
     max-width: 100%;
+    margin-top: 0px;
     padding: 0;
   }
-  .features {
-    padding: 0.5rem 1rem;
+
+  .navbar {
+    border-bottom: 0px;
+    background-image: linear-gradient(
+      to right,
+      #3ab5b0 0%,
+      #3d99be 31%,
+      #56317a 100%
+    );
+    background-color: transparent;
+  }
+
+  .site-name {
+    display: none;
+  }
+
+  // .search-box input {
+  //   background-color: transparent;
+  //   border: 1px solid white;
+  // }
+
+  .search-box {
+    display: none;
+  }
+
+  .navbar .links {
+    background-color: transparent;
+  }
+
+  .nav-item {
+    color: white;
+  }
+
+  .nav-item a.router-link-active,
+  .nav-item > a:not(.external):hover {
+    color: lightgray;
+  }
+
+  .nav-item > a:not(.external).router-link-active {
+    border-bottom: 2px solid lightgray;
+  }
+
+  #main-title, .description {
+    display: none;
   }
 }
