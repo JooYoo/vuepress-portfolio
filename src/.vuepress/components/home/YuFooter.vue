@@ -1,6 +1,6 @@
 <template>
   <v-flex>
-    <v-footer id="footer" height="auto">
+    <v-footer class="v-footer" height="auto">
       <v-card
         class="flex"
         flat
@@ -14,9 +14,9 @@
           </strong>
           <v-spacer></v-spacer>
 
-          <v-btn v-for="icon in icons" :key="icon.id" class="mx-3" dark icon>
+          <v-btn v-for="icon in icons" :key="icon.id" class="v-footer__icon--wrapper" dark icon>
             <a id="link-color" :href="icon.link" :target="icon.target">
-              <v-icon :href="icon.link" size="24px">{{ icon.icon }}</v-icon>
+              <v-icon :href="icon.link" size="24px" class="v-footer__icon">{{ icon.icon }}</v-icon>
             </a>
           </v-btn>
         </v-card-title>
@@ -68,10 +68,18 @@ export default {
 </script>
 
 <style>
-#footer {
+.v-footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   padding: 0;
+}
+
+.v-footer__icon--wrapper{
+  margin-right: 40px;
+}
+
+.v-footer__icon{
+  color: white !important;
 }
 </style>

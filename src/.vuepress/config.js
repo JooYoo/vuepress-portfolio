@@ -1,6 +1,10 @@
 module.exports = {
   plugins: ['@vuepress/back-to-top'],
   title: "Yu💻",
+  head:[
+    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900' }],
+    ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css' }],
+  ],
   description: "My awesome portfolio blog",
   themeConfig: {
     nav: [
