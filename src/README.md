@@ -18,4 +18,3 @@ pageClass: homepage
 
 <!-- <home-Header/> -->
 <home-Home/>
-<home-Footer/>

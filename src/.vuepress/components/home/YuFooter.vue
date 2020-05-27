@@ -27,7 +27,7 @@
 
 <script>
 export default {
-  name: "App",
+  name: "yuFooter",
   data() {
     return {
       bottomNav: 3,
@@ -72,5 +72,6 @@ export default {
   position: absolute;
   bottom: 0;
   width: 100%;
+  padding: 0;
 }
 </style>

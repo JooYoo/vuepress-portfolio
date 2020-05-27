@@ -29,14 +29,18 @@
         </div>
       </v-expand-transition>
     </v-card>
+
+    <yuFooter></yuFooter>
   </div>
 </template>
 
 <script>
 import yuHeader from "./YuHeader";
+import yuFooter from "./YuFooter";
 export default {
   components: {
-    yuHeader
+    yuHeader,
+    yuFooter
   },
   data: () => ({
     show: false
