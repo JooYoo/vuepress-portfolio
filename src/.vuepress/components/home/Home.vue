@@ -6,6 +6,10 @@
       <yuAbout></yuAbout>
     </v-flex>
 
+    <v-flex>
+      <yuProjectsOverview></yuProjectsOverview>
+    </v-flex>
+
     <v-flex class="container--footer">
       <yuFooter></yuFooter>
     </v-flex>
@@ -14,12 +18,14 @@
 
 <script>
 import yuHeader from "./widgets/YuHeader";
-import yuFooter from "./widgets/YuFooter";
 import yuAbout from "./widgets/YuAbout";
+import yuProjectsOverview from "./widgets/YuProjectsOverview";
+import yuFooter from "./widgets/YuFooter";
 export default {
   components: {
     yuHeader,
     yuAbout,
+    yuProjectsOverview,
     yuFooter
   },
   data: () => ({

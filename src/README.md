@@ -12,7 +12,7 @@ home: true
 #     details: I love writing tech articles to share my knowledge on frontend frameworks, libraries, best practices and more.
 #   - title: Traveller
 #     details: Travelling is my favourite activity, I am an avid hiker and backpacker
-# footer: Developed using VuePress ♥️
+#footer: Developed using VuePress ♥️
 pageClass: homepage
 ---
 
