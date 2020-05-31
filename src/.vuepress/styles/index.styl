@@ -6,7 +6,8 @@
   }
 
   .navbar {
-    border-bottom: 0px;
+    position: relative;
+    border-bottom: 0;
     background-image: linear-gradient(
       to right,
       #3ab5b0 0%,
@@ -21,10 +22,9 @@
   }
 
   // .search-box input {
-  //   background-color: transparent;
-  //   border: 1px solid white;
+  // background-color: transparent;
+  // border: 1px solid white;
   // }
-
   .search-box {
     display: none;
   }
@@ -37,8 +37,7 @@
     color: white;
   }
 
-  .nav-item a.router-link-active,
-  .nav-item > a:not(.external):hover {
+  .nav-item a.router-link-active, .nav-item > a:not(.external):hover {
     color: lightgray;
   }
 

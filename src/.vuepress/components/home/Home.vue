@@ -1,19 +1,17 @@
 <template>
-  <div>
+  <v-app>
     <yuHeader></yuHeader>
-
+    
     <v-flex class="container--about">
       <yuAbout></yuAbout>
     </v-flex>
 
-    <v-flex>
-      <yuProjectsOverview></yuProjectsOverview>
-    </v-flex>
+    <yuProjectsOverview></yuProjectsOverview>
 
     <v-flex class="container--footer">
       <yuFooter></yuFooter>
     </v-flex>
-  </div>
+  </v-app>
 </template>
 
 <script>

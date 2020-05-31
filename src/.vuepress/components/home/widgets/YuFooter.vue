@@ -7,9 +7,9 @@
       </div>
       <v-spacer></v-spacer>
 
-      <v-btn v-for="icon in icons" :key="icon.id" class="footer__icon--wrapper" dark icon>
+      <v-btn v-for="icon in contacts" class="footer__icon--wrapper" dark icon>
         <a :href="icon.link" :target="icon.target">
-          <v-icon :href="icon.link" class="footer__icon">{{ icon.icon }}</v-icon>
+          <v-icon class="footer__icon">{{ icon.icon }}</v-icon>
         </a>
       </v-btn>
     </v-card-title>
@@ -17,27 +17,14 @@
 </template>
 
 <script>
+ import contacts from "../../../data/contacts";
+
 export default {
   name: "yuFooter",
+
   data() {
     return {
-      icons: [
-        {
-          icon: "fab fa-github",
-          link: "https://github.com/JooYoo",
-          target: "_blank"
-        },
-        {
-          icon: "fas fa-envelope",
-          link: "mailto:jooyoo@outlook.com",
-          target: ""
-        },
-        {
-          icon: "fab fa-linkedin",
-          link: "https://www.linkedin.com/in/yu-zhu-511770177",
-          target: "_blank"
-        }
-      ]
+      contacts
     };
   }
 };
@@ -56,7 +43,8 @@ export default {
 }
 
 .footer__subheading {
-  color:white;
+  margin-left: 40px;
+  color: white;
   font-weight: normal;
 }
 

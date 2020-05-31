@@ -1,120 +1,108 @@
 <template>
-  <!-- <div class="post-container">
-    <router-link v-if="index != 0" v-for="(page, index) in pages" :key="index" :to="page.path">
-      <div class="post-card">
-        <img class="article-image" :src="pages[4-index].frontmatter.overviewImg" />
-        <div class="page-detail">
-          <div class="page-title">{{ pages[4-index].title }}</div>
-          <div class="page-description">{{ pages[4-index].frontmatter.description }}</div>
-          <div class="page-author">Author: {{ pages[4-index].frontmatter.author }}</div>
-          <div v-for="tech in page.frontmatter.techs">Techs: {{tech}}</div>
-        </div>
-      </div>
-    </router-link>
-  </div> -->
+  <v-card class="project-overview__container--main">
+    <v-container>
+      <div class="project-overview__title">Projects</div>
+      <v-row>
+        <v-col
+          v-if="index != 0"
+          v-for="(project, index) in projects"
+          :key="index"
+          :cols="flexes[index - 1]"
+        >
+          <router-link class="router-nav" :to="project.path">
+            <v-card class="project-overview__card" hover>
+              <v-img
+                :src="projects[4-index].frontmatter.overviewImg"
+                class="white--text align-end project-overview__card-img"
+              >
+                <v-card-title
+                  class="headline project-overview__card-title"
+                  v-text="projects[4-index].title"
+                ></v-card-title>
+              </v-img>
 
-  <v-container>
-    <v-layout justify-center>
-      <v-flex xs12 sm12>
-        <v-container fluid grid-list-xl>
-          <div id="experience-title" class="display-2 font-weight-thin">Projects</div>
-          <v-layout row wrap>
-            <v-flex>
-              <router-link class="router-nav" v-if="index != 0" v-for="(page, index) in pages" :key="index" :to="page.path">
-                <v-card class="rounded-card" hover>
-                  <v-img
-                    :src="pages[4-index].frontmatter.overviewImg"
-                    height="200px"
-                  >
-                    <v-container fill-height fluid pa-2>
-                      <v-layout fill-height>
-                        <v-flex xs12 align-end flexbox>
-                          <span
-                            class="headline white--text"
-                            v-text="pages[4-index].title"
-                          ></span>
-                        </v-flex>
-                      </v-layout>
-                    </v-container>
-                  </v-img>
-
-                  <v-card-actions class="text-xs-center">
-                    <div class="text-xs-left">
-                      <v-chip
-                        v-for="tech in pages[4-index].frontmatter.techs"
-                        small
-                        outlined
-                      >{{tech}}</v-chip>
-                    </div>
-                  </v-card-actions>
-                </v-card>
-              </router-link>
-            </v-flex>
-          </v-layout>
-          <router-link to="/project">
-            <div class="text-xs-center">
-              <v-btn dark color="primary" rounded large>more</v-btn>
-            </div>
+              <v-card-actions>
+                <v-chip
+                  v-for="tech in projects[4-index].frontmatter.techs"
+                  class="ma-2"
+                  outlined
+                  :color="getColor(tech)"
+                >{{tech}}</v-chip>
+              </v-card-actions>
+            </v-card>
           </router-link>
-        </v-container>
-      </v-flex>
-    </v-layout>
-  </v-container>
+        </v-col>
+      </v-row>
+
+      <router-link to="/project">
+        <div class="text-center project-overview__btn--container">
+          <v-btn dark class="project-overview__btn--more" color="primary" rounded large>more</v-btn>
+        </div>
+      </router-link>
+    </v-container>
+  </v-card>
 </template>
+
 <script>
+import techs from "../../../data/techs";
+
 export default {
   name: "yuProjectsOverview",
+
   data() {
     return {
-      pages: []
+      projects: [],
+      flexes: [6, 6, 12],
+      techs
     };
   },
+
   mounted() {
     this.$site.pages.forEach(page => {
       if (page.frontmatter.type === "project") {
-        this.pages.push(page);
+        this.projects.push(page);
       }
     });
+  },
+
+  methods: {
+    getColor: function(tech) {
+      return this.techs[tech].color;      
+    }
   }
 };
 </script>
 
 <style>
-.post-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
+.project-overview__container--main {
+  padding: 40px 0;
 }
-.post-card {
-  width: 600px;
-  height: 150px;
-  margin: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-}
-.article-image {
-  height: 100%;
-}
-.page-detail {
-  width: 100%;
-}
-.page-title,
-.page-description,
-.page-author {
-  text-align: center;
-  line-height: 200%;
-}
-.page-title {
-  font-size: 25px;
-  font-weight: bold;
-  color: black;
-}
-.page-description {
-  font-style: italic;
+
+.project-overview__title {
+  margin: 40px 0;
+  font-size: 45px;
   font-weight: lighter;
-  color: black;
+  letter-spacing: 2px;
+}
+
+.project-overview__card {
+  border-radius: 10px !important;
+}
+
+.project-overview__card-img {
+  height: 200px;
+}
+
+.project-overview__card-title {
+  position: absolute;
+  top: 0;
+}
+
+.project-overview__btn--container {
+  margin-top: 30px;
+}
+
+.project-overview__btn--more {
+  padding: 25px 30px !important;
 }
 </style>
