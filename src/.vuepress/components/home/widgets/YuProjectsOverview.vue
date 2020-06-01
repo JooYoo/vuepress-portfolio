@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import techs from "../../../data/techs";
+import JsonTechs from "../../../data/techs.json";
 
 export default {
   name: "yuProjectsOverview",
@@ -53,7 +53,7 @@ export default {
     return {
       projects: [],
       flexes: [6, 6, 12],
-      techs
+      techs: JsonTechs
     };
   },
 
@@ -66,8 +66,8 @@ export default {
   },
 
   methods: {
-    getColor: function(tech) {
-      return this.techs[tech].color;      
+    getColor: function(name) {
+      return this.techs.find(obj => obj.name == name).color;
     }
   }
 };

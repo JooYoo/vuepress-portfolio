@@ -7,7 +7,7 @@
       </div>
       <v-spacer></v-spacer>
 
-      <v-btn v-for="contact in contacts" class="footer__icon--wrapper" dark icon>
+      <v-btn v-for="contact in contacts" :key="contact.id" class="footer__icon--wrapper" dark icon>
         <a :href="contact.link" :target="contact.target">
           <v-icon class="footer__icon">{{ contact.icon }}</v-icon>
         </a>
@@ -17,16 +17,16 @@
 </template>
 
 <script>
- import contacts from "../../../data/contacts";
+import JsonContacts from "../../../data/contacts.json";
 
 export default {
   name: "yuFooter",
 
   data() {
     return {
-      contacts
+      contacts: JsonContacts
     };
-  }
+  },
 };
 </script>
 
