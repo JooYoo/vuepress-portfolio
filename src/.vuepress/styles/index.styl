@@ -1,3 +1,14 @@
+.theme-container:before {
+  content: '';
+  position: absolute;
+  height: 860px;
+  width: 100%;
+  background-image: embedurl('../public/images/lowpoly-5k-hight-cell-size.png');
+  background-repeat: unset;
+  background-size: cover;
+  z-index: 1;
+}
+
 .theme-container {
   .home {
     max-width: 100%;
@@ -8,12 +19,6 @@
   .navbar {
     position: relative;
     border-bottom: 0px;
-    background-image: linear-gradient(
-      to right,
-      #3ab5b0 0%,
-      #3d99be 31%,
-      #56317a 100%
-    );
     background-color: transparent;
   }
 
@@ -47,5 +52,14 @@
 
   #main-title, .description {
     display: none;
+  }
+
+  .theme-default-content:not(.custom) {
+    position: fixed;
+    width: 100%;
+    height: -webkit-fill-available;
+    max-width: unset;
+    background-color: white;
+    z-index: 10;
   }
 }

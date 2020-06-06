@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <yuHeader></yuHeader>
-    
+
     <v-flex class="container--about">
       <yuAbout></yuAbout>
     </v-flex>
@@ -44,10 +44,8 @@ export default {
   background-color: #f5f5f5;
   height: fit-content;
 }
-.container--skill{
+.container--skill {
   padding: 40px 0;
   background-color: #f5f5f5;
 }
-
-
 </style>

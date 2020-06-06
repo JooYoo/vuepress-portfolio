@@ -32,12 +32,14 @@ export default {
 .footer {
   width: 100%;
   padding: 10px 0 !important;
-  background-image: linear-gradient(
+  background-image: url("../../../public/images/lowpoly-5k-hight-cell-size.png");
+  background-position-y: -1370px;
+  /* background-image: linear-gradient(
     to right,
     #3ab5b0 0%,
     #3d99be 31%,
     #56317a 100%
-  );
+  ); */
 }
 
 .footer__subheading {

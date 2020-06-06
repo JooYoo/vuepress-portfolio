@@ -21,12 +21,12 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to right,
     #3ab5b0 0%,
     #3d99be 31%,
     #56317a 100%
-  );
+  ); */
 }
 .main-title {
   color: white;
@@ -34,6 +34,7 @@ export default {
   margin-bottom: 25px;
   font-family: "ZCOOL XiaoWei", sans-serif;
   text-align: center;
+  z-index: 2;
 }
 .subtitle {
   color: white;
@@ -42,10 +43,12 @@ export default {
   text-align: center;
   font-weight: 8000;
   font-family: "ZCOOL XiaoWei", sans-serif !important;
+  z-index: 2;
 }
 .divider {
   margin: 20px 5vw;
   background: white;
+  z-index: 2;
 }
 .job-title {
   text-align: center;
@@ -53,5 +56,6 @@ export default {
   font-family: "ZCOOL XiaoWei", sans-serif;
   font-weight: lighter;
   color: white;
+  z-index: 2;
 }
 </style>
