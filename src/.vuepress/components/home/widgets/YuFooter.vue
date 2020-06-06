@@ -22,11 +22,9 @@ import JsonContacts from "../../../data/contacts.json";
 export default {
   name: "yuFooter",
 
-  data() {
-    return {
-      contacts: JsonContacts
-    };
-  },
+  data: ()=>({
+    contacts: JsonContacts
+  }),
 };
 </script>
 

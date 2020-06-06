@@ -1,0 +1,106 @@
+{
+    "coding": [
+        {
+            "id": 1,
+            "name": "HTML",
+            "progress": 60,
+            "icon": "https://cdn.svgporn.com/logos/html-5.svg",
+            "color": "indigo darken-1"
+        },
+        {
+            "id": 2,
+            "name": "CSS",
+            "progress": 60,
+            "icon": "https://cdn.svgporn.com/logos/css-3.svg",
+            "color": "indigo darken-1"
+        },
+        {
+            "id": 3,
+            "name": "Sass",
+            "progress": 50,
+            "icon": "https://cdn.svgporn.com/logos/sass.svg",
+            "color": "indigo darken-1"
+        },
+        {
+            "id": 4,
+            "name": "Javascript",
+            "progress": 10,
+            "icon": "https://cdn.svgporn.com/logos/javascript.svg",
+            "color": "indigo darken-1"
+        },
+        {
+            "id": 5,
+            "name": "Typescript",
+            "progress": 20,
+            "icon": "https://cdn.svgporn.com/logos/typescript-icon.svg",
+            "color": "indigo darken-1"
+        },
+        {
+            "id": 6,
+            "name": "C#",
+            "progress": 60,
+            "icon": "https://www.flamingoajans.com/assets/vendors/devicon/icons/csharp/csharp-original.svg",
+            "color": "indigo darken-1"
+        }
+    ],
+    "web": [
+        {
+            "id": 1,
+            "name": "Angular",
+            "progress": 60,
+            "icon": "https://cdn.svgporn.com/logos/angular-icon.svg",
+            "color": "red darken-1"
+        },
+        {
+            "id": 2,
+            "name": "Vuejs",
+            "progress": 20,
+            "icon": "https://cdn.svgporn.com/logos/vue.svg",
+            "color": "red darken-1"
+        },
+        {
+            "id": 3,
+            "name": "React",
+            "progress": 10,
+            "icon": "https://cdn.svgporn.com/logos/react.svg",
+            "color": "red darken-1"
+        },
+        {
+            "id": 4,
+            "name": "ASP.NET Core",
+            "progress": 40,
+            "icon": "https://cdn.svgporn.com/logos/dotnet.svg",
+            "color": "red darken-1"
+        }
+    ],
+    "ui": [
+        {
+            "id": 1,
+            "name": "ionic",
+            "progress": 60,
+            "icon": "https://cdn.svgporn.com/logos/ionic.svg",
+            "color": "teal darken-1"
+        },
+        {
+            "id": 2,
+            "name": "Vuetify",
+            "progress": 30,
+            "icon": "https://cdn.svgporn.com/logos/vuetifyjs.svg",
+            "color": "teal darken-1"
+        },
+        {
+            "id": 3,
+            "name": "Bootstrap",
+            "progress": 80,
+            "icon": "https://cdn.svgporn.com/logos/bootstrap.svg",
+            "color": "teal darken-1"
+        },
+        {
+            "id": 4,
+            "name": "UIkit",
+            "progress": 60,
+            "icon": "https://cdn.svgporn.com/logos/uikit.svg",
+            "color": "teal darken-1"
+        }
+    ]
+}

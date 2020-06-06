@@ -47,13 +47,11 @@ import JsonTechs from "../../../data/techs.json";
 export default {
   name: "yuProjectsOverview",
 
-  data() {
-    return {
-      projects: [],
-      flexes: [6, 6, 12],
-      techs: JsonTechs
-    };
-  },
+  data: () => ({
+    projects: [],
+    flexes: [6, 6, 12],
+    techs: JsonTechs
+  }),
 
   mounted() {
     this.$site.pages.forEach(page => {
