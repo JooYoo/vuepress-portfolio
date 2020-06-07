@@ -1,0 +1,62 @@
+[
+    {
+        "color": "pink",
+        "year": "2019",
+        "title": "Frontend Developer",
+        "where": "stellar design und engineering GmbH (DE) • Full-time",
+        "content": [
+            "Frontend development for In-Vehicle Infotainment (IVI) system. ",
+            "Work close with UI/UX designer to implement design ideas into usable software. ",
+            "Create user interface, and optimize user experience. ",
+            "Extend new features to the software.",
+            "Maintain the software components, ensuring its functionality and ease of use."
+        ]
+    },
+    {
+        "color": "cyan",
+        "year": "2016",
+        "title": "Software Developer",
+        "where": "artiso solutions GmbH (DE) • Apprenticeship",
+        "content": [
+            "Three years apprenticeship (Ausbildung) as a Software Developer.",
+            " I've learned the basic .Net Technology Stack, such as C#, WPF, ASP.NET Core, etc.",
+            "As part of my job, I developed desktop software and websites for internal usage. ",
+            "For example, lunch management system, software license management system, etc.",
+            "I have a year and a half of experience learning and developing MR/AR applications for HoloLens and Smartphones by Unity3D, Blender, ARCore and so on.",
+            "These applications are developed for company product exhibitions, new employee training, product size measurement, etc.",
+            "In my free time, I learned the basics of Web Application Development by myself, including Angular, Vue, React, etc. ",
+            "After that, I have the ability to develop web applications independently. ",
+            "Under the premise of balancing functionality and user experience, I was able to develop and deploy the applications cross-platform.",
+            "Until now, I have developed my personal Portfolio Website, and there are several applications I developed myself in the Apple AppStore and Google PlayStore.",
+            "I developed a Machine Learning Image Recognition application as my graduation project.",
+            "Based on Tensorflow and PWA technology, the app recognizes workers' hands in real time and runs across platforms.",
+            "The project was presented to the customer (an automated shelf producer) and adopted for using in a production environment."
+        ]
+    },
+    {
+        "color": "orange",
+        "year": "2015",
+        "title": "Chinese Instructor",
+        "where": "online (CN) • Freelance",
+        "content": [
+            "I thaught Chinese online to students, who come from Australia, America, and Europe.",
+            "I had to take care of the entire business process myself. Including course developement, marketing, conducting classes, accounting and customer service.",
+            "In order to help students study efficiently, I created a multimedia eBook using iAuthor, Adobe Photoshop and Keynote.",
+            "I created and edited all the video and sound footage myself, utilizing iMovie, Adobe After Effects and Garageband.",
+            "For better Management of the student's course schedule, I created a Website using Wordpress.",
+            "Doing so helped me to learn more about HTML, CSS and Javascript."
+        ]
+    },
+    {
+        "color": "green",
+        "year": "2014",
+        "title": "Graphic Designer",
+        "where": "Yunnan University of Finance and Economics (CN) • Part-time",
+        "content": [
+            "While I was studying for my master's degree",
+            "I worked part time as a Graphic Designer for a department ( Postgraduate Education Center ) at my University.",
+            "I was responsible for VI Design",
+            "such as the Student Portfolio as well as creating the University's Major Brochure using Adobe Illustrator and Adobe Photoshop."
+        ]
+    }
+]
