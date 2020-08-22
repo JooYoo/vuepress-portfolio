@@ -2,7 +2,7 @@
   <div class="post-container">
     <router-link v-for="page in pages" :to="page.path">
       <div class="post-card">
-        <img class="article-image" src="../public/images/vuepress.png" />
+        <img class="article-image" src="../../public/images/vuepress.png" />
         <div class="page-detail">
           <div class="page-title">{{ page.title }}</div>
           <div class="page-description">{{ page.frontmatter.description }}</div>
@@ -16,17 +16,17 @@
 export default {
   data() {
     return {
-      pages: []
-    }
+      pages: [],
+    };
   },
   mounted() {
-    this.$site.pages.forEach(page => {
-      if (page.frontmatter.type === 'project') {
-        this.pages.push(page)
+    this.$site.pages.forEach((page) => {
+      if (page.frontmatter.type === "project") {
+        this.pages.push(page);
       }
-    })
-  }
-}
+    });
+  },
+};
 </script>
 
 <style>
@@ -48,16 +48,16 @@ export default {
 .article-image {
   height: 100%;
 }
-.page-detail{
+.page-detail {
   width: 100%;
 }
 .page-title,
 .page-description,
-.page-author{
+.page-author {
   text-align: center;
   line-height: 200%;
 }
-.page-title{
+.page-title {
   font-size: 25px;
   font-weight: bold;
   color: black;

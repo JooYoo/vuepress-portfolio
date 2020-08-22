@@ -17,4 +17,4 @@ pageClass: homepage
 ---
 
 <!-- <home-Header/> -->
-<home-Home/>
+<homePage-Home/>
