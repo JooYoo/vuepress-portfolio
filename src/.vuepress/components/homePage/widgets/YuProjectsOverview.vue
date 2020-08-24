@@ -11,8 +11,8 @@
         <router-link class="router-nav" :to="project.path">
           <v-card class="project-overview__card" hover>
             <v-img
-              :src="projects[4-index].frontmatter.overviewImg"
               class="white--text align-end project-overview__card-img"
+              :src="projects[4-index].frontmatter.overviewImg"
             >
               <v-card-title
                 class="headline project-overview__card-title"
@@ -50,11 +50,11 @@ export default {
   data: () => ({
     projects: [],
     flexes: [6, 6, 12],
-    techs: JsonTechs
+    techs: JsonTechs,
   }),
 
   mounted() {
-    this.$site.pages.forEach(page => {
+    this.$site.pages.forEach((page) => {
       if (page.frontmatter.type === "project") {
         this.projects.push(page);
       }
@@ -62,10 +62,10 @@ export default {
   },
 
   methods: {
-    getColor: function(name) {
-      return this.techs.find(obj => obj.name == name).color;
-    }
-  }
+    getColor: function (name) {
+      return this.techs.find((obj) => obj.name == name).color;
+    },
+  },
 };
 </script>
 

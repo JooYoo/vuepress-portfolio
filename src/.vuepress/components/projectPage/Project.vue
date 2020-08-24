@@ -1,24 +1,44 @@
 <template>
-  <div class="post-container">
-    <router-link v-for="page in pages" :to="page.path">
-      <div class="post-card">
-        <img class="article-image" src="../../public/images/vuepress.png" />
-        <div class="page-detail">
-          <div class="page-title">{{ page.title }}</div>
-          <div class="page-description">{{ page.frontmatter.description }}</div>
-          <div class="page-author">Author: {{ page.frontmatter.author }}</div>
-        </div>
-      </div>
-    </router-link>
-  </div>
+  <v-app>
+    <v-container fluid>
+      <v-row>
+        <v-col v-for="page in pages" :cols="page.frontmatter.flex">
+          <router-link class="router-nav" :to="page.path">
+            <v-card class="project-overview__card" hover>
+              <v-img
+                class="align-end project-overview__card-img"
+                :src="page.frontmatter.overviewImg"
+              ></v-img>
+              <v-card-title
+                class="headline white--text project-overview__card-title"
+                v-text="page.frontmatter.title"
+              ></v-card-title>
+
+              <v-card-actions>
+                <v-chip
+                  class="ma-2"
+                  v-for="tech in page.frontmatter.techs"
+                  outlined
+                  :color="getColor(tech)"
+                >{{tech}}</v-chip>
+              </v-card-actions>
+            </v-card>
+          </router-link>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-app>
 </template>
+
 <script>
+import JsonTechs from "../../data/techs.json";
+
 export default {
-  data() {
-    return {
-      pages: [],
-    };
-  },
+  data: () => ({
+    pages: [],
+    techs: JsonTechs,
+  }),
+
   mounted() {
     this.$site.pages.forEach((page) => {
       if (page.frontmatter.type === "project") {
@@ -26,45 +46,26 @@ export default {
       }
     });
   },
+
+  methods: {
+    getColor: function (name) {
+      return this.techs.find((obj) => obj.name == name).color;
+    },
+  },
 };
 </script>
 
 <style>
-.post-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
+.project-overview__card {
+  border-radius: 10px !important;
 }
-.post-card {
-  width: 600px;
-  height: 150px;
-  margin: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  padding: 10px;
-  display: flex;
-  align-items: center;
+
+.project-overview__card-img {
+  height: 200px;
 }
-.article-image {
-  height: 100%;
-}
-.page-detail {
-  width: 100%;
-}
-.page-title,
-.page-description,
-.page-author {
-  text-align: center;
-  line-height: 200%;
-}
-.page-title {
-  font-size: 25px;
-  font-weight: bold;
-  color: black;
-}
-.page-description {
-  font-style: italic;
-  font-weight: lighter;
-  color: black;
+
+.project-overview__card-title {
+  position: absolute;
+  top: 0;
 }
 </style>

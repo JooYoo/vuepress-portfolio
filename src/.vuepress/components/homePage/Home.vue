@@ -37,11 +37,11 @@ export default {
     yuProjectsOverview,
     yuSkill,
     yuExperience,
-    yuFooter
+    yuFooter,
   },
   data: () => ({
-    show: false
-  })
+    show: false,
+  }),
 };
 </script>
 

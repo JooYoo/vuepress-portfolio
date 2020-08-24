@@ -6,7 +6,9 @@ type: project
 # sidebar: auto
 overviewImg: https://cdn.vuetifyjs.com/images/cards/plane.jpg
 techs: [Angular, React, Vue, Node]
+flex: 6
 ---
 
 # My second project
-VuePress is an amazing static site generator! 
+
+VuePress is an amazing static site generator!
