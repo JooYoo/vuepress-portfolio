@@ -17,39 +17,10 @@
             </router-link>
 
             <v-card-actions>
-              <!-- <v-chip
-                  v-for="tech in page.frontmatter.techs"
-                  class="ma-1"
-                  :color="getColor(tech)"
-                  outlined
-                >
-                  <v-avatar
-                    left
-                    class="white--text"
-                    :color="getColor(tech)"
-                    src="https://simpleicons.org/icons/vue-dot-js.svg"
-                  ></v-avatar>
-                  {{tech}}
-              </v-chip>-->
-              <v-bottom-navigation dark shift>
-                <v-btn>
-                  <span>Video</span>
-                  <v-icon>fa-email</v-icon>
-                </v-btn>
-
-                <v-btn>
-                  <span>Music</span>
-                  <v-icon>fa-favorite</v-icon>
-                </v-btn>
-
-                <v-btn>
-                  <span>Book</span>
-                  <v-icon>fa-angular</v-icon>
-                </v-btn>
-
-                <v-btn>
-                  <span>Image</span>
-                  <v-icon>fa-react</v-icon>
+              <v-bottom-navigation class="project-overview__card-footer-tech-tab" shift>
+                <v-btn v-for="tech in page.frontmatter.techs">
+                  <span>20%</span>
+                  <yuIcon :logo="tech"></yuIcon>
                 </v-btn>
               </v-bottom-navigation>
             </v-card-actions>
@@ -62,8 +33,13 @@
 
 <script>
 import JsonTechs from "../../data/techs.json";
+import yuIcon from "../share/yuIcon";
 
 export default {
+  components: {
+    yuIcon,
+  },
+
   data: () => ({
     pages: [],
     techs: JsonTechs,
@@ -101,5 +77,10 @@ export default {
 .project-overview__card-title {
   position: absolute;
   top: 0;
+}
+
+.project-overview__card-footer-tech-tab {
+  box-shadow: unset !important;
+  width: unset !important;
 }
 </style>
