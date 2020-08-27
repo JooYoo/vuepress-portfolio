@@ -19,8 +19,8 @@
             <v-card-actions>
               <v-bottom-navigation class="project-overview__card-footer-tech-tab" shift>
                 <v-btn v-for="tech in page.frontmatter.techs">
-                  <span>20%</span>
-                  <yuIcon :logo="tech"></yuIcon>
+                  <span>{{tech.percent}}</span>
+                  <yuIcon :logo="tech.name"></yuIcon>
                 </v-btn>
               </v-bottom-navigation>
             </v-card-actions>
