@@ -1,9 +1,11 @@
 <template>
   <v-app>
-    <v-container fluid>
-      <v-row>
-        <v-col v-for="page in pages" :cols="page.frontmatter.flex">
-          <v-card class="project-overview__card" hover>
+    <v-container fluid grid-list-xl>
+      <!-- <v-row> -->
+
+      <v-layout row wrap>
+        <v-flex xs12 md6 v-for="page in pages">
+          <v-card class="project-overview__card rounded-card" hover>
             <router-link class="router-nav" :to="page.path">
               <v-img
                 class="align-end project-overview__card-img"
@@ -25,8 +27,10 @@
               </v-bottom-navigation>
             </v-card-actions>
           </v-card>
-        </v-col>
-      </v-row>
+        </v-flex>
+      </v-layout>
+
+      <!-- </v-row> -->
     </v-container>
   </v-app>
 </template>
@@ -72,6 +76,8 @@ export default {
 
 .project-overview__card-img {
   height: 200px;
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
 }
 
 .project-overview__card-title {
