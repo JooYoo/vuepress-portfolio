@@ -1,8 +1,6 @@
 <template>
   <v-app>
     <v-container fluid grid-list-xl>
-      <!-- <v-row> -->
-
       <v-layout row wrap>
         <v-flex xs12 md6 v-for="page in pages">
           <v-card class="project-overview__card rounded-card" hover>
@@ -18,10 +16,16 @@
               </v-img>
             </router-link>
 
-            <v-card-actions>
+            <v-card-actions class="project-overview__card-footer-container">
               <v-bottom-navigation class="project-overview__card-footer-tech-tab" shift>
-                <v-btn v-for="tech in page.frontmatter.techs">
-                  <span>{{tech.percent}}</span>
+                <v-btn
+                  v-for="tech in page.frontmatter.techs"
+                  class="project-overview__card-footer-tech-tab--btn"
+                >
+                  <span
+                    class="project-overview__card-footer-tech-tab--percent"
+                    :style="{'border-color': getColor(tech.name)}"
+                  >{{tech.percent}}</span>
                   <yuIcon :logo="tech.name"></yuIcon>
                 </v-btn>
               </v-bottom-navigation>
@@ -29,8 +33,6 @@
           </v-card>
         </v-flex>
       </v-layout>
-
-      <!-- </v-row> -->
     </v-container>
   </v-app>
 </template>
@@ -88,5 +90,17 @@ export default {
 .project-overview__card-footer-tech-tab {
   box-shadow: unset !important;
   width: unset !important;
+}
+
+.project-overview__card-footer-container {
+  display: flex;
+  justify-content: center;
+}
+
+.project-overview__card-footer-tech-tab--btn {
+}
+
+.project-overview__card-footer-tech-tab--percent {
+  border-bottom: 3px solid;
 }
 </style>

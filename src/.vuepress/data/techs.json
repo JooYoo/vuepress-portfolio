@@ -1,26 +1,26 @@
 [
-    {
-        "id": 1,
-        "name": "Angular",
-        "color": "red",
-        "logo": "https://cdn.svgporn.com/logos/angular-icon.svg"
-    },
-    {
-        "id": 2,
-        "name": "React",
-        "color": "blue",
-        "logo": "https://cdn.svgporn.com/logos/react.svg"
-    },
-    {
-        "id": 3,
-        "name": "Vue",
-        "color": "green",
-        "logo": "https://cdn.svgporn.com/logos/vue.svg"
-    },
-    {
-        "id": 4,
-        "name": "Node",
-        "color": "teal",
-        "logo": "https://cdn.svgporn.com/logos/nodejs.svg"
-    }
+  {
+    "id": 1,
+    "name": "Angular",
+    "color": "#DD0031",
+    "logo": "https://cdn.svgporn.com/logos/angular-icon.svg"
+  },
+  {
+    "id": 2,
+    "name": "React",
+    "color": "#61DAFB",
+    "logo": "https://cdn.svgporn.com/logos/react.svg"
+  },
+  {
+    "id": 3,
+    "name": "Vue",
+    "color": "#4FC08D",
+    "logo": "https://cdn.svgporn.com/logos/vue.svg"
+  },
+  {
+    "id": 4,
+    "name": "Node",
+    "color": "#339933",
+    "logo": "https://cdn.svgporn.com/logos/nodejs.svg"
+  }
 ]
