@@ -7,13 +7,13 @@ type: project
 overviewImg: https://cdn.vuetifyjs.com/images/cards/plane.jpg
 techs:
   - name: Angular
-    percent: 10%
+    percent: 80%
   - name: React
-    percent: 20%
+    percent: 10%
   - name: Vue
-    percent: 30%
+    percent: 5%
   - name: Node
-    percent: 40%
+    percent: 5%
 flex: 6
 ---
 

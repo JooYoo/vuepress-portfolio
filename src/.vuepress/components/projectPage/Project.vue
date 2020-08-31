@@ -14,14 +14,19 @@
                   v-text="page.frontmatter.title"
                 ></v-card-title>
               </v-img>
+
+              <div class="project-overview-card-footer__tech-progressbar-container">
+                <div v-for="tech in page.frontmatter.techs" :style="setTechProgress(tech)"></div>
+              </div>
             </router-link>
 
             <v-card-actions class="project-overview__card-footer-container">
-              <v-bottom-navigation class="project-overview__card-footer-tech-tab" shift>
-                <v-btn
-                  v-for="tech in page.frontmatter.techs"
-                  class="project-overview__card-footer-tech-tab--btn"
-                >
+              <v-bottom-navigation
+                v-for="tech in page.frontmatter.techs"
+                class="project-overview__card-footer-tech-tab"
+                shift
+              >
+                <v-btn class="project-overview__card-footer-tech-tab--btn">
                   <span
                     class="project-overview__card-footer-tech-tab--percent"
                     :style="{'border-color': getColor(tech.name)}"
@@ -67,6 +72,13 @@ export default {
     getLogo: function (name) {
       return this.techs.find((obj) => obj.name == name).logo;
     },
+
+    setTechProgress: function (tech) {
+      return {
+        backgroundColor: this.getColor(tech.name),
+        width: tech.percent,
+      };
+    },
   },
 };
 </script>
@@ -87,14 +99,21 @@ export default {
   top: 0;
 }
 
-.project-overview__card-footer-tech-tab {
-  box-shadow: unset !important;
-  width: unset !important;
-}
-
 .project-overview__card-footer-container {
   display: flex;
   justify-content: center;
+}
+
+.project-overview-card-footer__tech-progressbar-container {
+  display: flex;
+  position: relative;
+  height: 8px;
+  width: 100%;
+}
+
+.project-overview__card-footer-tech-tab {
+  box-shadow: unset !important;
+  width: unset !important;
 }
 
 .project-overview__card-footer-tech-tab--btn {

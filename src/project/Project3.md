@@ -9,11 +9,11 @@ techs:
   - name: Angular
     percent: 10%
   - name: React
-    percent: 20%
+    percent: 70%
   - name: Vue
-    percent: 30%
+    percent: 10%
   - name: Node
-    percent: 40%
+    percent: 10%
 flex: 4
 ---
 
