@@ -15,9 +15,7 @@
                 ></v-card-title>
               </v-img>
 
-              <div class="project-overview-card-footer__tech-progressbar-container">
-                <div v-for="tech in page.frontmatter.techs" :style="setTechProgress(tech)"></div>
-              </div>
+              <yuTechProgressbar :frontmatterTechs="page.frontmatter.techs"></yuTechProgressbar>
             </router-link>
 
             <v-card-actions class="project-overview__card-footer-container">
@@ -45,10 +43,12 @@
 <script>
 import JsonTechs from "../../data/techs.json";
 import yuIcon from "../share/yuIcon";
+import yuTechProgressbar from "./widgets/YuTechProgressbar";
 
 export default {
   components: {
     yuIcon,
+    yuTechProgressbar,
   },
 
   data: () => ({
@@ -71,13 +71,6 @@ export default {
 
     getLogo: function (name) {
       return this.techs.find((obj) => obj.name == name).logo;
-    },
-
-    setTechProgress: function (tech) {
-      return {
-        backgroundColor: this.getColor(tech.name),
-        width: tech.percent,
-      };
     },
   },
 };
@@ -102,13 +95,6 @@ export default {
 .project-overview__card-footer-container {
   display: flex;
   justify-content: center;
-}
-
-.project-overview-card-footer__tech-progressbar-container {
-  display: flex;
-  position: relative;
-  height: 8px;
-  width: 100%;
 }
 
 .project-overview__card-footer-tech-tab {
