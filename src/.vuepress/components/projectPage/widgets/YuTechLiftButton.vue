@@ -7,7 +7,7 @@
       :color="getColor(tech.name)"
     >
       <v-btn :style="setLogoColor(tech.name)">
-        <span class="lift-btn-tab-percent">{{tech.percent}}</span>
+        <span>{{tech.percent}}</span>
         <yuIcon :logo="tech.name"></yuIcon>
       </v-btn>
     </v-bottom-navigation>
@@ -59,17 +59,7 @@ export default {
   width: unset !important;
 }
 
-/* .lift-btn-tab__button--active {
-  .yuIcon__display:active {
-    fill: red;
-  }
-} */
-
 .v-btn--active {
   fill: var(--logo-color);
-}
-
-.lift-btn-tab-percent {
-  /* border-bottom: 3px solid; */
 }
 </style>
