@@ -55,7 +55,9 @@
 <script>
 export default {
   name: "yuIcon",
-  props: ["logo"],
+  props: {
+    logo: String,
+  },
 };
 </script>
 

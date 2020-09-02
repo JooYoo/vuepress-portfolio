@@ -18,20 +18,8 @@
               <yuTechProgressbar :frontmatterTechs="page.frontmatter.techs"></yuTechProgressbar>
             </router-link>
 
-            <v-card-actions class="project-overview__card-footer-container">
-              <v-bottom-navigation
-                v-for="tech in page.frontmatter.techs"
-                class="project-overview__card-footer-tech-tab"
-                shift
-              >
-                <v-btn class="project-overview__card-footer-tech-tab--btn">
-                  <span
-                    class="project-overview__card-footer-tech-tab--percent"
-                    :style="{'border-color': getColor(tech.name)}"
-                  >{{tech.percent}}</span>
-                  <yuIcon :logo="tech.name"></yuIcon>
-                </v-btn>
-              </v-bottom-navigation>
+            <v-card-actions>
+              <yuTechLiftButton :frontmatterTechs="page.frontmatter.techs"></yuTechLiftButton>
             </v-card-actions>
           </v-card>
         </v-flex>
@@ -42,13 +30,13 @@
 
 <script>
 import JsonTechs from "../../data/techs.json";
-import yuIcon from "../share/yuIcon";
 import yuTechProgressbar from "./widgets/YuTechProgressbar";
+import yuTechLiftButton from "./widgets/YuTechLiftButton";
 
 export default {
   components: {
-    yuIcon,
     yuTechProgressbar,
+    yuTechLiftButton,
   },
 
   data: () => ({
@@ -90,22 +78,5 @@ export default {
 .project-overview__card-title {
   position: absolute;
   top: 0;
-}
-
-.project-overview__card-footer-container {
-  display: flex;
-  justify-content: center;
-}
-
-.project-overview__card-footer-tech-tab {
-  box-shadow: unset !important;
-  width: unset !important;
-}
-
-.project-overview__card-footer-tech-tab--btn {
-}
-
-.project-overview__card-footer-tech-tab--percent {
-  border-bottom: 3px solid;
 }
 </style>

@@ -25,8 +25,8 @@
                 v-for="tech in projects[4-index].frontmatter.techs"
                 class="ma-2"
                 outlined
-                :color="getColor(tech)"
-              >{{tech}}</v-chip>
+                :color="getColor(tech.name)"
+              >{{tech.name}}</v-chip>
             </v-card-actions>
           </v-card>
         </router-link>
