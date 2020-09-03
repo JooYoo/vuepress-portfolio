@@ -79,4 +79,8 @@ export default {
   position: absolute;
   top: 0;
 }
+
+.v-application--wrap {
+  min-height: unset;
+}
 </style>

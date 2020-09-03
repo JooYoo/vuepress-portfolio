@@ -1,7 +1,7 @@
 .theme-container:before {
   content: '';
   position: absolute;
-  height: 860px;
+  height: 100%;
   width: 100%;
   // background-image: embedurl('../public/images/lowpoly-5k-hight-cell-size.png');
   background-image: url('https://live.staticflickr.com/65535/50247461143_e9c5fc0f30_o.png');
@@ -56,11 +56,15 @@
   }
 
   .theme-default-content:not(.custom) {
-    position: fixed;
+    position: absolute;
     width: 100%;
     height: -webkit-fill-available;
     max-width: unset;
     background-color: white;
     z-index: 10;
+  }
+
+  .theme-default-content:not(.custom) > *:first-child {
+    margin-top: unset;
   }
 }
