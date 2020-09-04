@@ -47,8 +47,9 @@ export default {
 
 <style>
 .container--about {
-  background-color: #f5f5f5;
   height: fit-content;
+  margin-top: 80px;
+  background-color: #f5f5f5;
 }
 .container--skill {
   padding: 40px 0;
