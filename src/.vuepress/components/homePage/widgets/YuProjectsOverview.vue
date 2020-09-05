@@ -3,13 +3,13 @@
     <div class="project-overview__title">Projects</div>
     <v-row>
       <v-col
-        v-if="index != 0"
         v-for="(project, index) in projects"
+        v-if="index != 0"
         :key="index"
         :cols="flexes[index - 1]"
       >
-        <router-link class="router-nav" :to="project.path">
-          <v-card class="project-overview__card" hover>
+        <v-card class="project-overview__card" hover>
+          <router-link class="router-nav" :to="project.path">
             <v-img
               class="white--text align-end project-overview__card-img"
               :src="projects[4-index].frontmatter.overviewImg"
@@ -19,20 +19,17 @@
                 v-text="projects[4-index].title"
               ></v-card-title>
             </v-img>
+            <yuTechProgressbar :frontmatterTechs="projects[4-index].frontmatter.techs"></yuTechProgressbar>
+          </router-link>
 
-            <v-card-actions>
-              <v-chip
-                v-for="tech in projects[4-index].frontmatter.techs"
-                class="ma-2"
-                outlined
-                :color="getColor(tech.name)"
-              >{{tech.name}}</v-chip>
-            </v-card-actions>
-          </v-card>
-        </router-link>
+          <v-card-actions>
+            <yuTechLiftButton :frontmatterTechs="projects[4-index].frontmatter.techs"></yuTechLiftButton>
+          </v-card-actions>
+        </v-card>
       </v-col>
     </v-row>
 
+    <!-- more btn -->
     <router-link to="/project">
       <div class="text-center project-overview__btn--container">
         <v-btn dark class="project-overview__btn--more" color="primary" rounded large>more</v-btn>
@@ -43,9 +40,16 @@
 
 <script>
 import JsonTechs from "../../../data/techs.json";
+import yuTechProgressbar from "../../projectPage/widgets/YuTechProgressbar";
+import yuTechLiftButton from "../../projectPage/widgets/YuTechLiftButton";
 
 export default {
   name: "yuProjectsOverview",
+
+  components: {
+    yuTechProgressbar,
+    yuTechLiftButton,
+  },
 
   data: () => ({
     projects: [],
