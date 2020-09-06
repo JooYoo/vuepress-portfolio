@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: "yuHeader"
+  name: "yuHeader",
 };
 </script>
 
@@ -17,7 +17,7 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei");
 .main-jumbotron {
-  height: 800px;
+  height: 730px;
   display: flex;
   flex-direction: column;
   justify-content: center;

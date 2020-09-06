@@ -2,11 +2,14 @@
   <v-container class="project-overview__container--main">
     <div class="project-overview__title">Projects</div>
     <v-row>
+      <!-- <v-layout row wrap> -->
+      <!-- <v-flex xs12 md6 > -->
       <v-col
         v-for="(project, index) in projects"
-        v-if="index != 0"
         :key="index"
-        :cols="flexes[index - 1]"
+        v-if="index != 0"
+        sm="12"
+        :md="flexes[index - 1]"
       >
         <v-card class="project-overview__card" hover>
           <router-link class="router-nav" :to="project.path">
@@ -27,7 +30,9 @@
           </v-card-actions>
         </v-card>
       </v-col>
+      <!-- </v-flex> -->
     </v-row>
+    <!-- </v-layout> -->
 
     <!-- more btn -->
     <router-link to="/project">
@@ -75,7 +80,7 @@ export default {
 
 <style>
 .project-overview__container--main {
-  padding: 40px 0;
+  padding: 40px 25px;
 }
 
 .project-overview__title {
@@ -91,6 +96,8 @@ export default {
 
 .project-overview__card-img {
   height: 200px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .project-overview__card-title {
