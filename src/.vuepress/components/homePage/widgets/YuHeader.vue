@@ -17,7 +17,7 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei");
 .main-jumbotron {
-  height: 730px;
+  height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;

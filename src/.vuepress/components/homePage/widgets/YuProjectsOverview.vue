@@ -2,8 +2,6 @@
   <v-container class="project-overview__container--main">
     <div class="project-overview__title">Projects</div>
     <v-row>
-      <!-- <v-layout row wrap> -->
-      <!-- <v-flex xs12 md6 > -->
       <v-col
         v-for="(project, index) in projects"
         :key="index"
@@ -30,9 +28,7 @@
           </v-card-actions>
         </v-card>
       </v-col>
-      <!-- </v-flex> -->
     </v-row>
-    <!-- </v-layout> -->
 
     <!-- more btn -->
     <router-link to="/project">
