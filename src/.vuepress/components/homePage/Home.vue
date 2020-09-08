@@ -51,7 +51,7 @@ export default {
   background-color: #f5f5f5;
 }
 .container--skill {
-  padding: 40px 0;
+  padding: 40px 25px;
   background-color: #f5f5f5;
 }
 .container--experience {

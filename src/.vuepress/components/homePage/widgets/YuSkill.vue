@@ -4,60 +4,16 @@
     <v-layout row wrap>
       <v-flex xs12>
         <v-card class="skill__card">
-          <v-card-text class="overflow-hidden py-0">
-            <v-layout row align-content-center class="horiz-scroll">
-              <v-flex px-1 pb-2>
-                <div class="pos-relative">
-                  <v-list three-line>
-                    <v-subheader>Coding</v-subheader>
-                    <v-list-item v-for="item in skills.coding" :key="item.id">
-                      <v-list-item-action>
-                        <img :src="item.icon" width="25px" />
-                      </v-list-item-action>
-                      <v-list-item-content>
-                        <v-list-item-title>{{item.name}}</v-list-item-title>
-                        <v-progress-linear :color="item.color" v-model="item.progress"></v-progress-linear>
-                      </v-list-item-content>
-                    </v-list-item>
-                  </v-list>
-                </div>
-              </v-flex>
-
-              <v-flex px-1 pb-2>
-                <div class="pos-relative">
-                  <v-list three-line>
-                    <v-subheader>Framework / Library</v-subheader>
-                    <v-list-item v-for="item in skills.web" :key="item.id">
-                      <v-list-item-action>
-                        <img :src="item.icon" width="25px" />
-                      </v-list-item-action>
-                      <v-list-item-content>
-                        <v-list-item-title>{{item.name}}</v-list-item-title>
-                        <v-progress-linear :color="item.color" v-model="item.progress"></v-progress-linear>
-                      </v-list-item-content>
-                    </v-list-item>
-                  </v-list>
-                </div>
-              </v-flex>
-
-              <v-flex px-1 pb-2>
-                <div class="pos-relative">
-                  <v-list three-line>
-                    <v-subheader>UI Framework</v-subheader>
-                    <v-list-item v-for="item in skills.ui" :key="item.id">
-                      <v-list-item-action>
-                        <img :src="item.icon" width="25px" />
-                      </v-list-item-action>
-                      <v-list-item-content>
-                        <v-list-item-title>{{item.name}}</v-list-item-title>
-                        <v-progress-linear :color="item.color" v-model="item.progress"></v-progress-linear>
-                      </v-list-item-content>
-                    </v-list-item>
-                  </v-list>
-                </div>
-              </v-flex>
-            </v-layout>
-          </v-card-text>
+          <v-card-actions>
+            <div class="lift-btn-container">
+              <v-bottom-navigation v-for="tech in techs" class="lift-btn-tab" shift>
+                <v-btn>
+                  <span>{{tech.name}}</span>
+                  <img :src="tech.logo" width="25px" />
+                </v-btn>
+              </v-bottom-navigation>
+            </div>
+          </v-card-actions>
         </v-card>
       </v-flex>
     </v-layout>
@@ -66,13 +22,20 @@
 
 <script>
 import JsonSkills from "../../../data/skills.json";
+import JsonTechs from "../../../data/techs.json";
+import yuTechLiftButton from "../../projectPage/widgets/YuTechLiftButton";
 
 export default {
   name: "yuSkill",
 
+  components: {
+    yuTechLiftButton,
+  },
+
   data: () => ({
     skills: JsonSkills,
-  })
+    techs: JsonTechs,
+  }),
 };
 </script>
 
