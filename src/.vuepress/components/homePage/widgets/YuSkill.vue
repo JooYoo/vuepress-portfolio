@@ -1,41 +1,58 @@
 <template>
   <v-container>
     <div class="skill__title display-2 font-weight-thin">Skills</div>
-    <v-layout row wrap>
-      <v-flex xs12>
-        <v-card class="skill__card">
-          <v-card-actions>
-            <div class="lift-btn-container">
-              <v-bottom-navigation v-for="tech in techs" class="lift-btn-tab" shift>
-                <v-btn>
-                  <span>{{tech.name}}</span>
-                  <img :src="tech.logo" width="25px" />
-                </v-btn>
-              </v-bottom-navigation>
-            </div>
-          </v-card-actions>
-        </v-card>
-      </v-flex>
-    </v-layout>
+    <!-- <v-layout> -->
+    <v-flex>
+      <v-card class="skill__card">
+        <div class="skill-logo__container flex-wrap">
+          <img
+            class="skill-logo"
+            v-for="tech in techs"
+            :src="tech.logo"
+            :style="hoverLogoStyle(tech, isHover)"
+            @mouseenter="toggleHover"
+            @mouseleave="toggleHover"
+          />
+          {{isHover}}
+        </div>
+
+        <v-card-actions class="skill-percent-bar">
+          <span>test</span>
+        </v-card-actions>
+      </v-card>
+    </v-flex>
+    <!-- </v-layout> -->
   </v-container>
 </template>
 
 <script>
-import JsonSkills from "../../../data/skills.json";
 import JsonTechs from "../../../data/techs.json";
-import yuTechLiftButton from "../../projectPage/widgets/YuTechLiftButton";
 
 export default {
   name: "yuSkill",
 
-  components: {
-    yuTechLiftButton,
-  },
-
   data: () => ({
-    skills: JsonSkills,
     techs: JsonTechs,
+    isHover: false,
   }),
+
+  methods: {
+    toggleHover: function () {
+      return (this.isHover = !this.isHover);
+    },
+
+    hoverLogoStyle: function (tech, isHover) {
+      if (isHover) {
+        return {
+          backgroundColor: this.getColor(tech.name),
+        };
+      }
+    },
+
+    getColor: function (name) {
+      return this.techs.find((obj) => obj.name == name).color;
+    },
+  },
 };
 </script>
 
@@ -47,6 +64,20 @@ export default {
 
 .skill__card {
   border-radius: 10px !important;
+}
+
+.skill-logo__container {
+  display: flex;
+  padding: 20px 10px 40px;
+}
+
+.skill-logo {
+  width: 50px;
+  margin: 20px;
+}
+
+.skill-percent-bar {
+  border: 1px solid red;
 }
 
 .v-list-item__action {
