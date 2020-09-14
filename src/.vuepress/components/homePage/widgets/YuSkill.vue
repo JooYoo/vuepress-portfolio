@@ -1,19 +1,20 @@
 <template>
   <v-container>
     <div class="skill__title display-2 font-weight-thin">Skills</div>
-    <!-- <v-layout> -->
+
     <v-flex>
       <v-card class="skill__card">
         <div class="skill-logo__container flex-wrap">
-          <img
-            class="skill-logo"
-            v-for="tech in techs"
-            :src="tech.logo"
-            :style="hoverLogoStyle(tech, isHover)"
-            @mouseenter="toggleHover"
-            @mouseleave="toggleHover"
-          />
-          {{isHover}}
+          <span v-for="tech in techs">
+            <!-- <img
+              class="skill-logo"
+              :src="tech.logo"
+              :style="hoverLogoStyle(tech, isHover)"
+              @mouseenter="toggleHover"
+              @mouseleave="toggleHover"
+            />-->
+            <yuSkillLogo :logo="tech.logo"></yuSkillLogo>
+          </span>
         </div>
 
         <v-card-actions class="skill-percent-bar">
@@ -21,15 +22,19 @@
         </v-card-actions>
       </v-card>
     </v-flex>
-    <!-- </v-layout> -->
   </v-container>
 </template>
 
 <script>
 import JsonTechs from "../../../data/techs.json";
+import yuSkillLogo from "./YuSkillLogo";
 
 export default {
   name: "yuSkill",
+
+  components: {
+    yuSkillLogo,
+  },
 
   data: () => ({
     techs: JsonTechs,
