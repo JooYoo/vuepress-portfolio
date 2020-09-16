@@ -1,8 +1,13 @@
 <template>
-  <span>
-    <img class="skill-logo" :src="logo" @mouseenter="toggleHover" @mouseleave="toggleHover" />
-    <!-- {{isHover}} -->
-  </span>
+  <div>
+    <img
+      class="skill-logo"
+      :src="logo"
+      :style="hoverLogoStyle(isHover)"
+      @mouseenter="toggleHover"
+      @mouseleave="toggleHover"
+    />
+  </div>
 </template>
 
 <script>
@@ -23,6 +28,14 @@ export default {
   methods: {
     toggleHover: function () {
       return (this.isHover = !this.isHover);
+    },
+
+    hoverLogoStyle: function (isHover) {
+      if (isHover) {
+        return {
+          transform: "scale(1.2)",
+        };
+      }
     },
   },
 };

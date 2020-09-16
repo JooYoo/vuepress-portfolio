@@ -73,12 +73,8 @@ export default {
 
 .skill-logo__container {
   display: flex;
+  align-items: center;
   padding: 20px 10px 40px;
-}
-
-.skill-logo {
-  width: 50px;
-  margin: 20px;
 }
 
 .skill-percent-bar {
