@@ -6,19 +6,14 @@
       <v-card class="skill__card">
         <div class="skill-logo__container flex-wrap">
           <span v-for="tech in techs">
-            <!-- <img
-              class="skill-logo"
-              :src="tech.logo"
-              :style="hoverLogoStyle(tech, isHover)"
-              @mouseenter="toggleHover"
-              @mouseleave="toggleHover"
-            />-->
             <yuSkillLogo :logo="tech.logo"></yuSkillLogo>
           </span>
         </div>
 
         <v-card-actions class="skill-percent-bar">
-          <span>test</span>
+          <div v-for="article in projectArticles">
+            <yuSkillProgressbars :usedTechs="article.frontmatter.techs"></yuSkillProgressbars>
+          </div>
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -28,18 +23,29 @@
 <script>
 import JsonTechs from "../../../data/techs.json";
 import yuSkillLogo from "./YuSkillLogo";
+import yuSkillProgressbars from "./YuSkillProgressbars";
 
 export default {
   name: "yuSkill",
 
   components: {
     yuSkillLogo,
+    yuSkillProgressbars,
   },
 
   data: () => ({
     techs: JsonTechs,
+    projectArticles: [],
     isHover: false,
   }),
+
+  mounted() {
+    this.$site.pages.forEach((page) => {
+      if (page.frontmatter.type === "project") {
+        this.projectArticles.push(page);
+      }
+    });
+  },
 
   methods: {
     toggleHover: function () {
