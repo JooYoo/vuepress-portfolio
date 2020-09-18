@@ -10,9 +10,9 @@
           </span>
         </div>
 
-        <v-card-actions class="skill-percent-bar">
-          <div v-for="article in projectArticles">
-            <yuSkillProgressbars :usedTechs="article.frontmatter.techs"></yuSkillProgressbars>
+        <v-card-actions>
+          <div class="skill-percent-bar">
+            <yuSkillProgressbars :usedTechs="calcUsedTechs"></yuSkillProgressbars>
           </div>
         </v-card-actions>
       </v-card>
@@ -36,7 +36,7 @@ export default {
   data: () => ({
     techs: JsonTechs,
     projectArticles: [],
-    isHover: false,
+    articleTechs: [],
   }),
 
   mounted() {
@@ -47,19 +47,22 @@ export default {
     });
   },
 
+  computed: {
+    calcUsedTechs: function () {
+      let projectCount = this.projectArticles.length;
+      let allTechs = [];
+
+      this.projectArticles.forEach((article) => {
+        // merge all techs from articles
+        allTechs.push(...article.frontmatter.techs);
+      });
+
+      console.log(allTechs);
+      return allTechs;
+    },
+  },
+
   methods: {
-    toggleHover: function () {
-      return (this.isHover = !this.isHover);
-    },
-
-    hoverLogoStyle: function (tech, isHover) {
-      if (isHover) {
-        return {
-          backgroundColor: this.getColor(tech.name),
-        };
-      }
-    },
-
     getColor: function (name) {
       return this.techs.find((obj) => obj.name == name).color;
     },
@@ -83,8 +86,12 @@ export default {
   padding: 20px 10px 40px;
 }
 
+.v-card__actions {
+  border-top: 1px lightgray solid;
+}
+
 .skill-percent-bar {
-  border: 1px solid red;
+  width: 100%;
 }
 
 .v-list-item__action {
