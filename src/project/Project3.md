@@ -7,13 +7,13 @@ type: project
 overviewImg: https://farm3.staticflickr.com/2582/4105054854_2927d15bc6_b.jpg
 techs:
   - name: Angular
-    percent: 10%
+    percent: 10
   - name: React
-    percent: 70%
+    percent: 70
   - name: Vue
-    percent: 10%
+    percent: 10
   - name: Node
-    percent: 10%
+    percent: 10
 flex: 4
 ---
 

@@ -4,6 +4,11 @@
 
     <v-flex>
       <v-card class="skill__card">
+        <v-card-title>
+          <v-icon large left>mdi-twitter</v-icon>
+          <span class="title font-weight-light">Twitter</span>
+        </v-card-title>
+
         <div class="skill-logo__container flex-wrap">
           <span v-for="tech in techs">
             <yuSkillLogo :logo="tech.logo"></yuSkillLogo>
@@ -49,16 +54,26 @@ export default {
 
   computed: {
     calcUsedTechs: function () {
-      let projectCount = this.projectArticles.length;
+      let articleCount = this.projectArticles.length;
       let allTechs = [];
+      let reducedTechs;
 
+      // merge all techs from articles
       this.projectArticles.forEach((article) => {
-        // merge all techs from articles
         allTechs.push(...article.frontmatter.techs);
       });
 
-      console.log(allTechs);
-      return allTechs;
+      // reduce (addition) all the tech which has the same name
+      reducedTechs = Object.values(
+        allTechs.reduce((total, { name, percent }) => {
+          total[name] = total[name] || { name, percent: 0 };
+          total[name].percent += percent / articleCount;
+          return total;
+        }, {})
+      );
+
+      console.log(reducedTechs);
+      return reducedTechs;
     },
   },
 

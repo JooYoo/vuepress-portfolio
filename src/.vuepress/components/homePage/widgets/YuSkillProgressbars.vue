@@ -22,7 +22,7 @@ export default {
     setTechProgressUI: function (tech) {
       return {
         backgroundColor: this.getColor(tech.name),
-        width: tech.percent,
+        width: `${tech.percent}%`,
       };
     },
 
