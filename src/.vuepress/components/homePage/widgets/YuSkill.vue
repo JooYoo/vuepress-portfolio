@@ -10,6 +10,7 @@
         </v-card-title>
 
         <div class="skill-logo__container flex-wrap">
+          <!-- TODO: only display usedTechs -->
           <span v-for="tech in techs">
             <yuSkillLogo :logo="tech.logo"></yuSkillLogo>
           </span>

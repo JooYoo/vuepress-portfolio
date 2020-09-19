@@ -7,11 +7,14 @@
       @mouseenter="toggleHover"
       @mouseleave="toggleHover"
     />
+    {{count}}
+    <button @click="toggleLift">click me</button>
   </div>
 </template>
 
 <script>
 import JsonTechs from "../../../data/techs.json";
+import { lift } from "../../service/yuSkillService";
 
 export default {
   name: "yuSkillLogo",
@@ -25,7 +28,17 @@ export default {
     isHover: false,
   }),
 
+  computed: {
+    count() {
+      return lift.isUp;
+    },
+  },
+
   methods: {
+    toggleLift() {
+      lift.isUp = !lift.isUp;
+    },
+
     toggleHover: function () {
       return (this.isHover = !this.isHover);
     },
