@@ -12,7 +12,7 @@
         <div class="skill-logo__container flex-wrap">
           <!-- TODO: only display usedTechs -->
           <span v-for="tech in techs">
-            <yuSkillLogo :logo="tech.logo"></yuSkillLogo>
+            <yuSkillLogo :logo="tech.logo" :name="tech.name"></yuSkillLogo>
           </span>
         </div>
 

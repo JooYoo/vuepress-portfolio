@@ -21,7 +21,7 @@ export default {
 
   computed: {
     isProgressLift() {
-      return lift.isUp;
+      return lift.tech;
     },
   },
 
@@ -36,6 +36,8 @@ export default {
     getColor: function (name) {
       return this.techs.find((obj) => obj.name == name).color;
     },
+
+    //TODO: lift progressbar based on lift.tech from observable
   },
 };
 </script>

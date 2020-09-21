@@ -8,7 +8,7 @@
       @mouseleave="toggleHover"
     />
     {{count}}
-    <button @click="toggleLift">click me</button>
+    {{name}}
   </div>
 </template>
 
@@ -20,6 +20,7 @@ export default {
   name: "yuSkillLogo",
 
   props: {
+    name: String,
     logo: String,
   },
 
@@ -35,11 +36,12 @@ export default {
   },
 
   methods: {
-    toggleLift() {
-      lift.isUp = !lift.isUp;
-    },
-
     toggleHover: function () {
+      // pass hoverTech to observable
+      //FIXME:
+      lift.isUp = !lift.isUp;
+      lift.tech = this.name;
+
       return (this.isHover = !this.isHover);
     },
 
