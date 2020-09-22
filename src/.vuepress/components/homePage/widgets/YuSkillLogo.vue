@@ -7,8 +7,7 @@
       @mouseenter="toggleHover"
       @mouseleave="toggleHover"
     />
-    {{count}}
-    {{name}}
+    <!-- {{count}} -->
   </div>
 </template>
 

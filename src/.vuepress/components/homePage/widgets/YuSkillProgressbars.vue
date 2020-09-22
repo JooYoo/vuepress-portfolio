@@ -1,6 +1,10 @@
 <template>
   <div class="skill-progressbar-container">
-    <div v-for="usedTech in usedTechs" :style="setTechProgressUI(usedTech)">{{isProgressLift}}</div>
+    <div
+      class="skill-progressbar"
+      v-for="usedTech in usedTechs"
+      :style="setTechProgressUI(usedTech, liftTech)"
+    ></div>
   </div>
 </template>
 
@@ -20,16 +24,17 @@ export default {
   },
 
   computed: {
-    isProgressLift() {
+    liftTech() {
       return lift.tech;
     },
   },
 
   methods: {
-    setTechProgressUI: function (tech) {
+    setTechProgressUI: function (tech, liftTech) {
       return {
         backgroundColor: this.getColor(tech.name),
         width: `${tech.percent}%`,
+        transform: this.setProgressbarLift(liftTech, tech.name),
       };
     },
 
@@ -37,7 +42,12 @@ export default {
       return this.techs.find((obj) => obj.name == name).color;
     },
 
-    //TODO: lift progressbar based on lift.tech from observable
+    //TODO: hoverEnd ProgressbarLift go back
+    setProgressbarLift(liftTech, currentTech) {
+      if (liftTech == currentTech) {
+        return "scaleY(3)";
+      }
+    },
   },
 };
 </script>
@@ -47,5 +57,9 @@ export default {
   display: flex;
   width: 100%;
   height: 15px;
+}
+
+.skill-progressbar {
+  transform-origin: bottom;
 }
 </style>
