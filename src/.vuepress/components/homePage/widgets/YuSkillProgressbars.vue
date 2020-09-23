@@ -46,7 +46,6 @@ export default {
       return this.techs.find((obj) => obj.name == name).color;
     },
 
-    //TODO: hoverEnd ProgressbarLift go back
     setProgressbarLift(currentTech, liftTech, isHover) {
       if (liftTech == currentTech && isHover) {
         return "scaleY(2)";
@@ -63,6 +62,7 @@ export default {
   display: flex;
   width: 100%;
   height: 25px;
+  opacity: 0.75;
 }
 
 .skill-progressbar {

@@ -3,11 +3,14 @@
     <div class="skill__title display-2 font-weight-thin">Skills</div>
 
     <v-flex>
-      <v-card class="skill__card">
-        <v-card-title>
-          <v-icon large right>mdi-twitter</v-icon>
-          <span class="title font-weight-light">Twitter</span>
-        </v-card-title>
+      <v-card class="skill-card">
+        <v-list-item class="skill-description">
+          <v-list-item-content>
+            <!-- TODO: make dynamic -->
+            <v-list-item-title class="headline">Angular: 30%</v-list-item-title>
+            <v-list-item-subtitle>DailySpinner, InfinityCard, CleanCalculator</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
 
         <div class="skill-logo__container flex-wrap">
           <!-- TODO: only display usedTechs -->
@@ -73,7 +76,6 @@ export default {
         }, {})
       );
 
-      console.log(reducedTechs);
       return reducedTechs;
     },
   },
@@ -92,8 +94,15 @@ export default {
   margin-bottom: 50px;
 }
 
-.skill__card {
+.skill-card {
   border-radius: 10px !important;
+  padding-top: 20px;
+}
+
+.skill-description {
+  margin: 10px;
+  padding-bottom: 20px;
+  border-bottom: 1px gainsboro solid;
 }
 
 .skill-logo__container {
@@ -103,7 +112,6 @@ export default {
 }
 
 .v-card__actions {
-  border-top: 1px lightgray solid;
   padding: unset !important;
 }
 
