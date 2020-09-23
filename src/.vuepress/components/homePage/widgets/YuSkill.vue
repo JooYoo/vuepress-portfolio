@@ -5,7 +5,7 @@
     <v-flex>
       <v-card class="skill__card">
         <v-card-title>
-          <v-icon large left>mdi-twitter</v-icon>
+          <v-icon large right>mdi-twitter</v-icon>
           <span class="title font-weight-light">Twitter</span>
         </v-card-title>
 
@@ -104,6 +104,7 @@ export default {
 
 .v-card__actions {
   border-top: 1px lightgray solid;
+  padding: unset !important;
 }
 
 .skill-percent-bar {
