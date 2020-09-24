@@ -6,8 +6,12 @@
       <v-card class="skill-card">
         <v-list-item class="skill-description">
           <v-list-item-content>
+            <v-list-item-title class="headline">
+              <span class="headline__made-by">made by</span>
+              <span class="headline__tech" :style="setTitleColor(liftTech)">{{liftTech}}</span>
+              {{getReducedTechPercent(liftTech)}}%
+            </v-list-item-title>
             <!-- TODO: make dynamic -->
-            <v-list-item-title class="headline">Angular: 30%</v-list-item-title>
             <v-list-item-subtitle>DailySpinner, InfinityCard, CleanCalculator</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
@@ -33,6 +37,7 @@
 import JsonTechs from "../../../data/techs.json";
 import yuSkillLogo from "./YuSkillLogo";
 import yuSkillProgressbars from "./YuSkillProgressbars";
+import { lift } from "../../service/yuSkillService";
 
 export default {
   name: "yuSkill",
@@ -57,7 +62,13 @@ export default {
   },
 
   computed: {
-    calcUsedTechs: function () {
+    // get hovered tech from Observable
+    liftTech() {
+      return lift.tech;
+    },
+
+    // summarize all techs from articles
+    calcUsedTechs() {
       let articleCount = this.projectArticles.length;
       let allTechs = [];
       let reducedTechs;
@@ -81,8 +92,23 @@ export default {
   },
 
   methods: {
-    getColor: function (name) {
+    getReducedTechPercent(liftTech) {
+      let liftedTech = this.calcUsedTechs.find((x) => x.name == liftTech);
+      !liftedTech ? (liftedTech = "Angular") : "";
+      let reducedTechPercent = Math.round(liftedTech.percent);
+
+      if (!reducedTechPercent) return "---";
+      return reducedTechPercent;
+    },
+
+    getColor(name) {
       return this.techs.find((obj) => obj.name == name).color;
+    },
+
+    setTitleColor(liftTech) {
+      return {
+        color: this.getColor(liftTech),
+      };
     },
   },
 };
@@ -103,6 +129,19 @@ export default {
   margin: 10px;
   padding-bottom: 20px;
   border-bottom: 1px gainsboro solid;
+}
+
+.headline {
+  /* TODO: add transition */
+  transition: opacity 1s ease-in-out;
+}
+
+.headline__made-by {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.headline__tech {
+  font-weight: bolder;
 }
 
 .skill-logo__container {
