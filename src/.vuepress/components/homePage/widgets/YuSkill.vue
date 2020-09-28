@@ -7,12 +7,18 @@
         <v-list-item class="skill-description">
           <v-list-item-content>
             <v-list-item-title class="headline">
-              <span class="headline__made-by">made by</span>
-              <span class="headline__tech" :style="setTitleColor(liftTech)">{{liftTech}}</span>
-              {{getReducedTechPercent(liftTech)}}%
+              <span class="headline__made-by">
+                {{ getReducedTechPercent(liftTech) }}%</span
+              >
+              <span class="headline__tech" :style="setTitleColor(liftTech)">{{
+                liftTech
+              }}</span>
             </v-list-item-title>
             <!-- TODO: make dynamic -->
-            <v-list-item-subtitle>DailySpinner, InfinityCard, CleanCalculator</v-list-item-subtitle>
+            <v-list-item-subtitle>
+              {{ liftTech }} accounts for {{ getReducedTechPercent(liftTech) }}%
+              of all my projects
+            </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
 
@@ -25,7 +31,9 @@
 
         <v-card-actions>
           <div class="skill-percent-bar">
-            <yuSkillProgressbars :usedTechs="calcUsedTechs"></yuSkillProgressbars>
+            <yuSkillProgressbars
+              :usedTechs="calcUsedTechs"
+            ></yuSkillProgressbars>
           </div>
         </v-card-actions>
       </v-card>
@@ -137,7 +145,7 @@ export default {
 }
 
 .headline__made-by {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.2);
 }
 
 .headline__tech {

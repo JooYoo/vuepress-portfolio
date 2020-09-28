@@ -7,7 +7,7 @@
       :color="getColor(tech.name)"
     >
       <v-btn :style="setLogoColor(tech.name)">
-        <span>{{tech.percent}}</span>
+        <span>{{ tech.percent }}%</span>
         <yuIcon :logo="tech.name"></yuIcon>
       </v-btn>
     </v-bottom-navigation>

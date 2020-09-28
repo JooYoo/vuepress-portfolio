@@ -61,7 +61,7 @@ export default {
 .skill-progressbar-container {
   display: flex;
   width: 100%;
-  height: 25px;
+  height: 15px;
   opacity: 0.75;
 }
 

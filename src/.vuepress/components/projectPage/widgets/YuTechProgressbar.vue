@@ -1,6 +1,9 @@
 <template>
   <div class="tech-progressbar-container">
-    <div v-for="tech in frontmatterTechs" :style="setTechProgressUI(tech)"></div>
+    <div
+      v-for="tech in frontmatterTechs"
+      :style="setTechProgressUI(tech)"
+    ></div>
   </div>
 </template>
 
@@ -22,7 +25,7 @@ export default {
     setTechProgressUI: function (tech) {
       return {
         backgroundColor: this.getColor(tech.name),
-        width: tech.percent,
+        width: `${tech.percent}%`,
       };
     },
 
