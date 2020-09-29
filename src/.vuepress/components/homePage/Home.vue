@@ -16,6 +16,10 @@
       <yuExperience></yuExperience>
     </v-flex>
 
+    <v-flex class="container--training">
+      <yuTraining></yuTraining>
+    </v-flex>
+
     <v-flex class="container--footer">
       <yuFooter></yuFooter>
     </v-flex>
@@ -23,12 +27,13 @@
 </template>
 
 <script>
-import yuHeader from "./widgets/YuHeader";
-import yuAbout from "./widgets/YuAbout";
-import yuProjectsOverview from "./widgets/YuProjectsOverview";
-import yuFooter from "./widgets/YuFooter";
-import yuSkill from "./widgets/YuSkill";
-import yuExperience from "./widgets/YuExperience";
+import yuHeader from './widgets/YuHeader';
+import yuAbout from './widgets/YuAbout';
+import yuProjectsOverview from './widgets/YuProjectsOverview';
+import yuFooter from './widgets/YuFooter';
+import yuSkill from './widgets/YuSkill';
+import yuExperience from './widgets/YuExperience';
+import yuTraining from './widgets/YuTraining';
 
 export default {
   components: {
@@ -37,6 +42,7 @@ export default {
     yuProjectsOverview,
     yuSkill,
     yuExperience,
+    yuTraining,
     yuFooter,
   },
   data: () => ({
@@ -55,6 +61,10 @@ export default {
   background-color: #f5f5f5;
 }
 .container--experience {
-  padding: 40px 0;
+  padding: 40px 25px;
+}
+.container--training {
+  padding: 40px 25px;
+  background-color: #f5f5f5;
 }
 </style>
