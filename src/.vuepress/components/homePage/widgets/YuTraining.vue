@@ -3,10 +3,8 @@
     <v-layout justify-center>
       <v-flex xs12 sm12>
         <v-container fluid grid-list-xl>
-          <div id="experience-title" class="display-2 font-weight-thin">
-            Training
-          </div>
-          <v-card>
+          <div class="display-2 font-weight-thin training-title">Training</div>
+          <v-card class="training-main-card">
             <v-list subheader three-line>
               <v-subheader inset>
                 <v-list-item-title
@@ -17,7 +15,7 @@
 
               <v-list-item>
                 <v-list-item-action>
-                  <v-icon color="indigo">phonelink</v-icon>
+                  <v-icon color="indigo">fa-desktop</v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
                   <v-list-item-title>Software Development</v-list-item-title>
@@ -89,7 +87,7 @@
 
 <script>
 export default {
-  name: 'yuTraining',
+  name: "yuTraining",
 
   data: () => ({
     notifications: false,
@@ -100,6 +98,14 @@ export default {
 </script>
 
 <style>
+.training-title {
+  margin: 40px 0;
+}
+
+.training-main-card {
+  border-radius: 10px !important;
+}
+
 .flag {
   margin-left: -10px;
   margin-bottom: 130px;

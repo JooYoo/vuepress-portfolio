@@ -27,13 +27,13 @@
 </template>
 
 <script>
-import yuHeader from './widgets/YuHeader';
-import yuAbout from './widgets/YuAbout';
-import yuProjectsOverview from './widgets/YuProjectsOverview';
-import yuFooter from './widgets/YuFooter';
-import yuSkill from './widgets/YuSkill';
-import yuExperience from './widgets/YuExperience';
-import yuTraining from './widgets/YuTraining';
+import yuHeader from "./widgets/YuHeader";
+import yuAbout from "./widgets/YuAbout";
+import yuProjectsOverview from "./widgets/YuProjectsOverview";
+import yuFooter from "./widgets/YuFooter";
+import yuSkill from "./widgets/YuSkill";
+import yuExperience from "./widgets/YuExperience";
+import yuTraining from "./widgets/YuTraining";
 
 export default {
   components: {
