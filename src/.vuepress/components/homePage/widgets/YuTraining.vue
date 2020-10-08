@@ -9,7 +9,7 @@
             <span>Fachinformatiker - Anwendungsentwicklung | 2016 ~ 2019</span>
 
             <img
-              class="flag"
+              class="flag-end"
               src="https://www.flaticon.com/svg/static/icons/svg/197/197571.svg"
             />
           </v-list-item-title>
@@ -17,7 +17,7 @@
 
         <v-list-item three-line>
           <v-list-item-action>
-            <v-icon color="indigo">fa-desktop</v-icon>
+            <span class="icon-start">💻</span>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>Software Development</v-list-item-title>
@@ -37,14 +37,14 @@
               2019
             </span>
             <img
-              class="flag"
+              class="flag-end"
               src="https://www.flaticon.com/svg/static/icons/svg/197/197571.svg"
             />
           </v-list-item-title>
         </v-subheader>
         <v-list-item>
           <v-list-item-action>
-            <v-icon color="indigo">fa-battery-half</v-icon>
+            <span class="icon-start">🥈</span>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>German Level B2</v-list-item-title>
@@ -62,14 +62,14 @@
           <v-list-item-title>
             <span>Niveau B1 der Deutsch-Test für Zuwanderer | 2015 ~ 2016</span>
             <img
-              class="flag"
+              class="flag-end"
               src="https://www.flaticon.com/svg/static/icons/svg/197/197571.svg"
             />
           </v-list-item-title>
         </v-subheader>
         <v-list-item>
           <v-list-item-action>
-            <v-icon color="indigo">fa-battery-quarter</v-icon>
+            <span class="icon-start">🥉</span>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>German Level B1</v-list-item-title>
@@ -86,7 +86,7 @@
 
 <script>
 export default {
-  name: 'yuTraining',
+  name: "yuTraining",
 
   data: () => ({
     notifications: false,
@@ -118,7 +118,11 @@ export default {
   margin-left: 61px;
 }
 
-.flag {
+.icon-start {
+  font-size: 30px;
+}
+
+.flag-end {
   height: 30px;
 }
 </style>
