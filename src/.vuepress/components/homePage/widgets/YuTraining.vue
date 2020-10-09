@@ -17,7 +17,7 @@
 
         <v-list-item three-line>
           <v-list-item-action>
-            <span class="icon-start">💻</span>
+            <span class="icon-start">👨🏻‍💻</span>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>Software Development</v-list-item-title>
