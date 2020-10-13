@@ -1,5 +1,5 @@
 <template>
-  <div class="post-container">
+  <!-- <div class="post-container">
     <router-link v-for="page in pages" :to="page.path">
       <div class="post-card">
         <img class="article-image" src="../../public/images/vuepress.png" />
@@ -10,15 +10,74 @@
         </div>
       </div>
     </router-link>
-  </div>
+  </div> -->
+
+  <v-list two-line>
+      <v-list-item-group>
+        <template v-for="(item, index) in items">
+          <v-list-item :key="item.title">
+
+              <v-list-item-content>
+                <v-list-item-title v-text="item.title"></v-list-item-title>
+                <v-list-item-subtitle class="text--primary" v-text="item.headline"></v-list-item-subtitle>
+                <v-list-item-subtitle v-text="item.subtitle"></v-list-item-subtitle>
+              </v-list-item-content>
+
+              <v-list-item-action>
+                <v-list-item-action-text v-text="item.action"></v-list-item-action-text>
+              </v-list-item-action>
+            
+          </v-list-item>
+
+          <v-divider></v-divider>
+        </template>
+      </v-list-item-group>
+  </v-list>
+
+
 </template>
 <script>
 export default {
-  data() {
-    return {
-      pages: [],
-    };
-  },
+  data: () => ({
+    pages: [],
+
+    
+      items: [
+        {
+          action: '15 min',
+          headline: 'Brunch this weekend?',
+          subtitle: "I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
+          title: 'Ali Connors',
+        },
+        {
+          action: '2 hr',
+          headline: 'Summer BBQ',
+          subtitle: "Wish I could come, but I'm out of town this weekend.",
+          title: 'me, Scrott, Jennifer',
+        },
+        {
+          action: '6 hr',
+          headline: 'Oui oui',
+          subtitle: 'Do you have Paris recommendations? Have you ever been?',
+          title: 'Sandra Adams',
+        },
+        {
+          action: '12 hr',
+          headline: 'Birthday gift',
+          subtitle: 'Have any ideas about what we should get Heidi for her birthday?',
+          title: 'Trevor Hansen',
+        },
+        {
+          action: '18hr',
+          headline: 'Recipe to try',
+          subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
+          title: 'Britta Holt',
+        },
+      ],
+
+
+    
+  }),
   mounted() {
     this.$site.pages.forEach((page) => {
       if (page.frontmatter.type === "blog") {
