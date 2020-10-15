@@ -54,7 +54,7 @@
         </v-subheader>
         <v-list-item>
           <v-list-item-action>
-            <span class="icon-start">💼</span>
+            <span class="icon-start">👨🏻‍💼</span>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>Business Studies</v-list-item-title>
@@ -97,7 +97,7 @@
 
 <script>
 export default {
-  name: "yuEduction",
+  name: 'yuEduction',
 
   data: () => ({
     notifications: false,

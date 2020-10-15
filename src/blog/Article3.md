@@ -1,7 +1,8 @@
 ---
 title: My third blog
-description: Basic intro to vuepress
-author: Preetish HS
+date: 2020/10/25
+keyword: Vue
+description: Basic intro to Vue
 type: blog
 # sidebar: auto
 ---
