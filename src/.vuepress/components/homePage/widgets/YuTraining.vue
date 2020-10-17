@@ -119,6 +119,9 @@ export default {
 }
 
 .icon-start {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   font-size: 30px;
 }
 

@@ -97,7 +97,7 @@
 
 <script>
 export default {
-  name: 'yuEduction',
+  name: "yuEduction",
 
   data: () => ({
     notifications: false,
