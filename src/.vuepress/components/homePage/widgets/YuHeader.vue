@@ -9,13 +9,12 @@
 
 <script>
 export default {
-  name: "yuHeader",
+  name: 'yuHeader',
 };
 </script>
 
-
 <style>
-@import url("https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei");
+@import url('https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei');
 .main-jumbotron {
   height: 800px;
   display: flex;
@@ -32,7 +31,7 @@ export default {
   color: white;
   font-size: 65px;
   margin-bottom: 25px;
-  font-family: "ZCOOL XiaoWei", sans-serif;
+  font-family: 'ZCOOL XiaoWei', sans-serif;
   text-align: center;
   z-index: 2;
 }
@@ -42,7 +41,7 @@ export default {
   margin: 5px 0;
   text-align: center;
   font-weight: 8000;
-  font-family: "ZCOOL XiaoWei", sans-serif !important;
+  font-family: 'ZCOOL XiaoWei', sans-serif !important;
   z-index: 2;
 }
 .divider {
@@ -53,7 +52,7 @@ export default {
 .job-title {
   text-align: center;
   text-shadow: 2px 2px 4px #000000;
-  font-family: "ZCOOL XiaoWei", sans-serif;
+  font-family: 'ZCOOL XiaoWei', sans-serif;
   font-weight: lighter;
   color: white;
   z-index: 2;

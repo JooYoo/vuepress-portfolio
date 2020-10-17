@@ -19,6 +19,7 @@
   "homepage": "https://github.com/JooYoo/vuepress-portfolio#readme",
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.4.1",
+    "vue-particles": "^1.0.9",
     "vuepress": "^1.0.0-rc.1",
     "vuepress-plugin-social-share": "^0.2.1"
   },
