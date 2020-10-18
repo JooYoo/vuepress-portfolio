@@ -2,6 +2,11 @@
   <v-app>
     <v-flex class="container--header">
       <yuHeader></yuHeader>
+      <!-- <vue-particles
+        class="header__particles"
+        color="#dedede"
+        :particleSize="3"
+      ></vue-particles> -->
     </v-flex>
 
     <v-flex class="container--about">
