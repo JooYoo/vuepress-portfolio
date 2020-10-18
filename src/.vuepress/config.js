@@ -1,7 +1,14 @@
 module.exports = {
   plugins: ['@vuepress/back-to-top'],
-  title: 'Yu💻',
+  title: 'Yu',
   head: [
+    [
+      'link',
+      {
+        rel: 'shortcut icon',
+        href: '/images/favicons/favicon.ico',
+      },
+    ],
     [
       'link',
       {

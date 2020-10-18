@@ -7,11 +7,12 @@
         <v-subheader inset>
           <v-list-item-title>
             <span>Fachinformatiker - Anwendungsentwicklung | 2016 ~ 2019</span>
-
-            <img
-              class="flag-end"
-              src="https://www.flaticon.com/svg/static/icons/svg/197/197571.svg"
-            />
+            <div class="flag-container">
+              <img
+                class="flag-end"
+                src="https://www.flaticon.com/svg/static/icons/svg/197/197571.svg"
+              />
+            </div>
           </v-list-item-title>
         </v-subheader>
 
@@ -36,10 +37,12 @@
               Niveau B2 das kommunikationstraining für die Sprache Deutsch |
               2019
             </span>
-            <img
-              class="flag-end"
-              src="https://www.flaticon.com/svg/static/icons/svg/197/197571.svg"
-            />
+            <div class="flag-container">
+              <img
+                class="flag-end"
+                src="https://www.flaticon.com/svg/static/icons/svg/197/197571.svg"
+              />
+            </div>
           </v-list-item-title>
         </v-subheader>
         <v-list-item>
@@ -61,10 +64,12 @@
         <v-subheader inset>
           <v-list-item-title>
             <span>Niveau B1 der Deutsch-Test für Zuwanderer | 2015 ~ 2016</span>
-            <img
-              class="flag-end"
-              src="https://www.flaticon.com/svg/static/icons/svg/197/197571.svg"
-            />
+            <div class="flag-container">
+              <img
+                class="flag-end"
+                src="https://www.flaticon.com/svg/static/icons/svg/197/197571.svg"
+              />
+            </div>
           </v-list-item-title>
         </v-subheader>
         <v-list-item>

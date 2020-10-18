@@ -69,10 +69,25 @@
     height: -webkit-fill-available;
     max-width: unset;
     background-color: white;
-    z-index: 10;
+    z-index: 3;
   }
 
   .theme-default-content:not(.custom) > *:first-child {
     margin-top: unset;
+  }
+
+  .sidebar {
+    border-right: unset;
+    box-shadow: -3px 0 27px 5px rgba(0, 0, 0, 0.6);
+    background-image: linear-gradient(to bottom, #13547a 0%, #80d0c7 100%);
+    z-index: 9;
+
+    .nav-links {
+      border-bottom: unset;
+    }
+  }
+
+  .sidebar-button {
+    color: rgba(255, 255, 255, 0.8);
   }
 }

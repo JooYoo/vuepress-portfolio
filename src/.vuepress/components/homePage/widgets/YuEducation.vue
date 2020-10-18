@@ -73,10 +73,12 @@
         <v-subheader inset>
           <v-list-item-title>
             <span>Bachelor of Management Studies | 2008 ~ 2012</span>
-            <img
-              class="flag-end"
-              src="https://www.flaticon.com/svg/static/icons/svg/197/197375.svg"
-            />
+            <div class="flag-container">
+              <img
+                class="flag-end"
+                src="https://www.flaticon.com/svg/static/icons/svg/197/197375.svg"
+              />
+            </div>
           </v-list-item-title>
         </v-subheader>
         <v-list-item>
@@ -131,6 +133,11 @@ export default {
 
 .icon-start {
   font-size: 30px;
+}
+
+.flag-container {
+  position: absolute;
+  right: 20px;
 }
 
 .flag-end {
