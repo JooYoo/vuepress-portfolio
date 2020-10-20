@@ -43,7 +43,7 @@
   },
   {
     "id": 8,
-    "name": "Javascript",
+    "name": "JavaScript",
     "color": "#F7DF1E",
     "logo": "https://cdn.svgporn.com/logos/javascript.svg"
   },
@@ -89,5 +89,10 @@
     "name": "Git",
     "color": "#F05032",
     "logo": "https://cdn.svgporn.com/logos/git-icon.svg"
+  },
+  {
+    "name": "Stylus",
+    "color": "#333333",
+    "logo": "https://cdn.svgporn.com/logos/stylus.svg"
   }
 ]
