@@ -10,7 +10,7 @@ A website to introduce myself, list the projects I developed in my free time, sh
 
 # User story
 
-As a developer, I want to have a platform to introduce myself and showcase the projects I created, so that I have a better chance to find a job; as a lifelong learner, I want to have a space to summarise the knowledge I learned, and share with the world so that I can get more from the study and perhaps also help the people who try to learn the same top like me.
+As a developer, I want to have a platform to introduce myself and showcase the projects I created, so that I have a better chance to find a job; as a lifelong learner, I want to have a space to summarise the knowledge I've learned, and share with the world so that I can get more from the study and perhaps also help the people who is trying to learn the same topic like me.
 
 # Type
 
