@@ -2,29 +2,27 @@
   <v-container class="project-overview__container--main">
     <div class="project-overview__title">Projects</div>
     <v-row>
-      <v-col
-        v-for="(project, index) in projects"
-        :key="index"
-        v-if="index != 0"
-        sm="12"
-        :md="flexes[index - 1]"
-      >
+      <v-col v-for="(project, index) in projects" sm="12" :md="flexes[index]">
         <v-card class="project-overview__card" hover>
           <router-link class="router-nav" :to="project.path">
             <v-img
               class="white--text align-end project-overview__card-img"
-              :src="projects[4-index].frontmatter.overviewImg"
+              :src="project.frontmatter.overviewImg"
             >
               <v-card-title
                 class="headline project-overview__card-title"
-                v-text="projects[4-index].title"
+                v-text="project.title"
               ></v-card-title>
             </v-img>
-            <yuTechProgressbar :frontmatterTechs="projects[4-index].frontmatter.techs"></yuTechProgressbar>
+            <yuTechProgressbar
+              :frontmatterTechs="project.frontmatter.techs"
+            ></yuTechProgressbar>
           </router-link>
 
           <v-card-actions>
-            <yuTechLiftButton :frontmatterTechs="projects[4-index].frontmatter.techs"></yuTechLiftButton>
+            <yuTechLiftButton
+              :frontmatterTechs="project.frontmatter.techs"
+            ></yuTechLiftButton>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -33,19 +31,26 @@
     <!-- more btn -->
     <router-link to="/project">
       <div class="text-center project-overview__btn--container">
-        <v-btn dark class="project-overview__btn--more" color="primary" rounded large>more</v-btn>
+        <v-btn
+          dark
+          class="project-overview__btn--more"
+          color="primary"
+          rounded
+          large
+          >more</v-btn
+        >
       </div>
     </router-link>
   </v-container>
 </template>
 
 <script>
-import JsonTechs from "../../../data/techs.json";
-import yuTechProgressbar from "../../projectPage/widgets/YuTechProgressbar";
-import yuTechLiftButton from "../../projectPage/widgets/YuTechLiftButton";
+import JsonTechs from '../../../data/techs.json';
+import yuTechProgressbar from '../../projectPage/widgets/YuTechProgressbar';
+import yuTechLiftButton from '../../projectPage/widgets/YuTechLiftButton';
 
 export default {
-  name: "yuProjectsOverview",
+  name: 'yuProjectsOverview',
 
   components: {
     yuTechProgressbar,
@@ -60,7 +65,7 @@ export default {
 
   mounted() {
     this.$site.pages.forEach((page) => {
-      if (page.frontmatter.type === "project") {
+      if (page.frontmatter.type === 'project' && page.frontmatter.highlight) {
         this.projects.push(page);
       }
     });

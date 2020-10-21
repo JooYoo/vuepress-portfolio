@@ -8,7 +8,7 @@ overviewImg: https://farm8.staticflickr.com/7869/47276336342_1218785312_b.jpg
 techs:
   - name: Git
     percent: 100
-flex: 8
+highlight: true
 ---
 
 # My 5th project

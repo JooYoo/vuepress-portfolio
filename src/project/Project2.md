@@ -14,7 +14,7 @@ techs:
     percent: 5
   - name: Node
     percent: 5
-flex: 6
+highlight: true
 ---
 
 # My second project
