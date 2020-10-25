@@ -4,7 +4,7 @@ A website to introduce myself, list the projects I developed in my free time, sh
 
 <p align="center">
 <kbd>
-<img src="https://media1.giphy.com/media/AKamuejzQCIp40xv87/giphy.gif" style="box-shadow:0 8px 16px 0 rgba(0,0,0,0.2); border-radius: 10px;"/>
+<img src="https://media1.giphy.com/media/AKamuejzQCIp40xv87/giphy.gif" />
 </kbd>
 </p>
 
