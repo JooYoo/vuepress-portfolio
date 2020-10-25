@@ -3,7 +3,7 @@
 A website to introduce myself, list the projects I developed in my free time, share what I've learned about development.
 
 <p align="center">
-<img src="https://media1.giphy.com/media/AKamuejzQCIp40xv87/giphy.gif" style="box-shadow:0 8px 16px 0 rgba(0,0,0,0.2); border-radius: 10px;"/>
+![gif](https://media1.giphy.com/media/AKamuejzQCIp40xv87/giphy.gif){: style="box-shadow:0 8px 16px 0 rgba(0,0,0,0.2); border-radius: 10px;"}
 </p>
 
 # Demo
