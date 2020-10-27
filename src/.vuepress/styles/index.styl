@@ -1,3 +1,7 @@
+* {
+  margin: revert;
+}
+
 .theme-container:before {
   content: '';
   position: absolute;
@@ -67,14 +71,13 @@
   .theme-default-content:not(.custom) {
     position: absolute;
     width: 100%;
-    height: -webkit-fill-available;
     max-width: unset;
     background-color: white;
     z-index: 3;
   }
 
   .theme-default-content:not(.custom) > *:first-child {
-    margin-top: unset;
+    margin-top: 0px;
   }
 
   .sidebar {
