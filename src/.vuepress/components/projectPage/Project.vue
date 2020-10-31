@@ -15,11 +15,15 @@
                 ></v-card-title>
               </v-img>
 
-              <yuTechProgressbar :frontmatterTechs="page.frontmatter.techs"></yuTechProgressbar>
+              <yuTechProgressbar
+                :frontmatterTechs="page.frontmatter.techs"
+              ></yuTechProgressbar>
             </router-link>
 
             <v-card-actions>
-              <yuTechLiftButton :frontmatterTechs="page.frontmatter.techs"></yuTechLiftButton>
+              <yuTechLiftButton
+                :frontmatterTechs="page.frontmatter.techs"
+              ></yuTechLiftButton>
             </v-card-actions>
           </v-card>
         </v-flex>
