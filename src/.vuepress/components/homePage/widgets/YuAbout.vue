@@ -5,18 +5,51 @@
         <v-container>
           <div class="about__title">About</div>
           <p class="about__content">
-            Hello World. My name is Zhu Yu (朱瑜). I come from China and
-            currently work in Germany. As a Frontend Developer my primary
-            responsibility is that, to understand the needs of user, then
-            rendering the information as friendly as possible.
-            <br />I recently work in automotive industry and responsible for
-            frontend development of In-Vehicle Infotainment (IVI) system. I am
-            witnessing how software engineering is changing this traditional
-            industry. I feel so lucky to live in the age where technology is
-            advancing at a rapid pace. <br />In my free time, I also enjoy
-            mobile app development by modern web technologies. And I'm
-            passionate about the applications of Machine-Learning in the field
-            of computer vision as well.
+            Hello World. I am Yu (朱瑜). A Frontend Developer, Lifelong Learner,
+            Music Lover.
+          </p>
+          <p class="about__content">
+            I love coding. Over the years I have never stopped learning new
+            technologies and strengthening my basic knowledge. I've always
+            required myself to meet the standards of a Software engineer. In the
+            software development process, I try to make my code as simple and
+            easy to read, modular, reusable, extendable, and maintainable as
+            possible. I hope when the next engineer sees my code, he or she will
+            be able to get started quickly and continue developing new features.
+            I believe that a willingness to help people, combined with
+            technology, can make the world a better place.
+          </p>
+
+          <p class="about__content">
+            I love UX-Design. As a Frontend Developer, my primary responsibility
+            is, to understand the needs of the user, then rendering the
+            information as friendly as possible. I like Minimalist Design and
+            friendly Interaction. I'd love to think about how users would use
+            the software in different scenarios. I'm passionate about new
+            technologies, but I also believe that technology is not the goal in
+            itself, but a means to achieve the goal. I'd love to develop
+            software that helps users achieve their goals efficiently and
+            satisfactorily.
+          </p>
+          <p class="about__content">
+            I love challenges. I have been working in Germany since 2015. In the
+            meantime, I studied German and improved my English. Now as a
+            Frontend Developer, working in the Automotive Industry. My current
+            company provides software development services for several premium
+            sports car brands in southern Germany. I am responsible for the
+            development and maintenance of software for the In-Vehicle System.
+            So far I have been participating in the development and maintenance
+            of functions and features such as media player, navigation system,
+            air conditioning, seat massage, phone, rear-seat entertainment, etc.
+          </p>
+          <p class="about__content">
+            I love life. In my free time, I like to try different technologies
+            such as mobile app development, machine learning, computer vision,
+            etc. and use them to solve problems in my daily life. I will share
+            these applications to the open-source community or release them to
+            app stores so that more people can use it. I play guitar and
+            keyboard and hope to become a professional musician and produce my
+            own music albums by the time I retire.
           </p>
         </v-container>
       </v-flex>
