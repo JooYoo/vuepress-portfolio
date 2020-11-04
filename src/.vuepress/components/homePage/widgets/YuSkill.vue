@@ -36,7 +36,7 @@
         <v-card-actions>
           <div class="skill-percent-bar">
             <yuSkillProgressbars
-              :usedTechs="calcUsedTechs"
+              :usedTechs="calcUsedLanguages"
             ></yuSkillProgressbars>
           </div>
         </v-card-actions>
@@ -75,7 +75,7 @@
         <v-card-actions>
           <div class="skill-percent-bar">
             <yuSkillProgressbars
-              :usedTechs="calcUsedTechs"
+              :usedTechs="calcUsedLanguages"
             ></yuSkillProgressbars>
           </div>
         </v-card-actions>
@@ -101,7 +101,6 @@ export default {
   data: () => ({
     techs: JsonTechs,
     projectArticles: [],
-    articleTechs: [],
   }),
 
   mounted() {
@@ -118,33 +117,33 @@ export default {
       return lift.tech;
     },
 
-    // summarize all techs from articles
-    calcUsedTechs() {
+    // summarize all languages from articles
+    calcUsedLanguages() {
       let articleCount = this.projectArticles.length;
-      let allTechs = [];
-      let reducedTechs;
+      let allLanguages = [];
+      let reducedLanguages;
 
       // merge all techs from articles
       this.projectArticles.forEach((article) => {
-        allTechs.push(...article.frontmatter.techs);
+        allLanguages.push(...article.frontmatter.languages);
       });
 
-      // reduce (addition) all the tech which has the same name
-      reducedTechs = Object.values(
-        allTechs.reduce((total, { name, percent }) => {
+      // reduce (addition) all the languages which has the same name
+      reducedLanguages = Object.values(
+        allLanguages.reduce((total, { name, percent }) => {
           total[name] = total[name] || { name, percent: 0 };
           total[name].percent += percent / articleCount;
           return total;
         }, {})
       );
 
-      return reducedTechs;
+      return reducedLanguages;
     },
   },
 
   methods: {
     getReducedTechPercent(liftTech) {
-      let liftedTech = this.calcUsedTechs.find((x) => x.name == liftTech);
+      let liftedTech = this.calcUsedLanguages.find((x) => x.name == liftTech);
       !liftedTech ? (liftedTech = "Angular") : "";
       let reducedTechPercent = Math.round(liftedTech.percent);
 

@@ -15,13 +15,13 @@
               ></v-card-title>
             </v-img>
             <yuTechProgressbar
-              :frontmatterTechs="project.frontmatter.techs"
+              :frontmatterTechs="project.frontmatter.languages"
             ></yuTechProgressbar>
           </router-link>
 
           <v-card-actions>
             <yuTechLiftButton
-              :frontmatterTechs="project.frontmatter.techs"
+              :frontmatterTechs="project.frontmatter.languages"
             ></yuTechLiftButton>
           </v-card-actions>
         </v-card>
@@ -45,12 +45,12 @@
 </template>
 
 <script>
-import JsonTechs from '../../../data/techs.json';
-import yuTechProgressbar from '../../projectPage/widgets/YuTechProgressbar';
-import yuTechLiftButton from '../../projectPage/widgets/YuTechLiftButton';
+import JsonTechs from "../../../data/techs.json";
+import yuTechProgressbar from "../../projectPage/widgets/YuTechProgressbar";
+import yuTechLiftButton from "../../projectPage/widgets/YuTechLiftButton";
 
 export default {
-  name: 'yuProjectsOverview',
+  name: "yuProjectsOverview",
 
   components: {
     yuTechProgressbar,
@@ -65,7 +65,7 @@ export default {
 
   mounted() {
     this.$site.pages.forEach((page) => {
-      if (page.frontmatter.type === 'project' && page.frontmatter.highlight) {
+      if (page.frontmatter.type === "project" && page.frontmatter.highlight) {
         this.projects.push(page);
       }
     });

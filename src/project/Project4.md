@@ -5,7 +5,7 @@ author: Preetish HS
 type: project
 # sidebar: auto
 overviewImg: https://farm8.staticflickr.com/7869/47276336342_1218785312_b.jpg
-techs:
+languages:
   - name: Angular
     percent: 10
   - name: React

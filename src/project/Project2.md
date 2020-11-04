@@ -5,7 +5,7 @@ author: Preetish HS
 type: project
 # sidebar: auto
 overviewImg: https://cdn.vuetifyjs.com/images/cards/plane.jpg
-techs:
+languages:
   - name: Angular
     percent: 80
   - name: React

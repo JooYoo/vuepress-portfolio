@@ -16,13 +16,13 @@
               </v-img>
 
               <yuTechProgressbar
-                :frontmatterTechs="page.frontmatter.techs"
+                :frontmatterTechs="page.frontmatter.languages"
               ></yuTechProgressbar>
             </router-link>
 
             <v-card-actions>
               <yuTechLiftButton
-                :frontmatterTechs="page.frontmatter.techs"
+                :frontmatterTechs="page.frontmatter.languages"
               ></yuTechLiftButton>
             </v-card-actions>
           </v-card>
