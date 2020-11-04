@@ -3,20 +3,63 @@
     <div class="skill__title display-2 font-weight-thin">Skills</div>
 
     <v-flex>
+      <!-- skill-card--language -->
       <v-card class="skill-card">
         <v-list-item class="skill-description">
           <v-list-item-content>
             <v-list-item-title class="headline">
-              <span class="headline__made-by">
-                {{ getReducedTechPercent(liftTech) }}%</span
-              >
-              <span class="headline__tech" :style="setTitleColor(liftTech)">{{
-                liftTech
-              }}</span>
+              <div class="headline-container">
+                <span class="headline__tech" :style="setTitleColor(liftTech)">
+                  {{ liftTech }}
+                </span>
+                <span class="headline__made-by">
+                  {{ getReducedTechPercent(liftTech) }}%
+                </span>
+              </div>
+              <span class="headline-card-type">Languages</span>
             </v-list-item-title>
             <!-- TODO: make dynamic -->
             <v-list-item-subtitle>
-              {{ liftTech }} accounts for {{ getReducedTechPercent(liftTech) }}%
+              {{ liftTech }} accounts for {{ getReducedTechPercent(liftTech) }}%
+              of all my projects
+            </v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+
+        <div class="skill-logo__container flex-wrap">
+          <!-- TODO: only display usedTechs -->
+          <span v-for="tech in techs">
+            <yuSkillLogo :logo="tech.logo" :name="tech.name"></yuSkillLogo>
+          </span>
+        </div>
+
+        <v-card-actions>
+          <div class="skill-percent-bar">
+            <yuSkillProgressbars
+              :usedTechs="calcUsedTechs"
+            ></yuSkillProgressbars>
+          </div>
+        </v-card-actions>
+      </v-card>
+
+      <!-- skill-card--framework -->
+      <v-card class="skill-card skill-card--framework">
+        <v-list-item class="skill-description">
+          <v-list-item-content>
+            <v-list-item-title class="headline">
+              <div class="headline-container">
+                <span class="headline__tech" :style="setTitleColor(liftTech)">
+                  {{ liftTech }}
+                </span>
+                <span class="headline__made-by">
+                  {{ getReducedTechPercent(liftTech) }}%
+                </span>
+              </div>
+              <span class="headline-card-type">Frameworks / Libraries</span>
+            </v-list-item-title>
+            <!-- TODO: make dynamic -->
+            <v-list-item-subtitle>
+              {{ liftTech }} accounts for {{ getReducedTechPercent(liftTech) }}%
               of all my projects
             </v-list-item-subtitle>
           </v-list-item-content>
@@ -133,18 +176,28 @@ export default {
   padding-top: 20px;
 }
 
+.skill-card--framework {
+  margin-top: 40px;
+}
+
 .skill-description {
   margin: 10px;
   padding-bottom: 20px;
   border-bottom: 1px gainsboro solid;
 }
 
-.headline {
-  /* TODO: add transition */
+.headline-container {
+  display: flex;
+  justify-content: flex-start;
   transition: opacity 1s ease-in-out;
 }
 
+.headline-card-type {
+  color: rgba(0, 0, 0, 0.2);
+}
+
 .headline__made-by {
+  margin-inline-start: 10px;
   color: rgba(0, 0, 0, 0.2);
 }
 
