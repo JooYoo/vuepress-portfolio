@@ -6,14 +6,15 @@ type: project
 # sidebar: auto
 overviewImg: https://farm8.staticflickr.com/7869/47276336342_1218785312_b.jpg
 languages:
-  - name: Angular
+  - name: HTML
     percent: 10
-  - name: React
+  - name: Sass
     percent: 20
-  - name: Vue
-    percent: 30
-  - name: Node
-    percent: 40
+  - name: TypeScript
+    percent: 70
+framework:
+  - name: Angular
+  - name: ionic
 highlight: false
 ---
 

@@ -6,14 +6,14 @@ type: project
 # sidebar: auto
 overviewImg: https://cdn.vuetifyjs.com/images/cards/plane.jpg
 languages:
-  - name: Angular
+  - name: JavaScript
     percent: 80
-  - name: React
+  - name: HTML
     percent: 10
-  - name: Vue
-    percent: 5
+  - name: CSS
+    percent: 10
+framework:
   - name: Node
-    percent: 5
 highlight: true
 ---
 

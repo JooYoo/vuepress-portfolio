@@ -1,91 +1,75 @@
 [
   {
-    "id": 1,
     "name": "Angular",
     "color": "#DD0031",
     "logo": "https://cdn.svgporn.com/logos/angular-icon.svg"
   },
   {
-    "id": 2,
     "name": "React",
     "color": "#61DAFB",
     "logo": "https://cdn.svgporn.com/logos/react.svg"
   },
   {
-    "id": 3,
     "name": "Vue",
     "color": "#4FC08D",
     "logo": "https://cdn.svgporn.com/logos/vue.svg"
   },
   {
-    "id": 4,
     "name": "Node",
     "color": "#339933",
     "logo": "https://cdn.svgporn.com/logos/nodejs.svg"
   },
   {
-    "id": 5,
     "name": "HTML",
     "color": "#E34F26",
     "logo": "https://cdn.svgporn.com/logos/html-5.svg"
   },
   {
-    "id": 6,
     "name": "CSS",
     "color": "#1572B6",
     "logo": "https://cdn.svgporn.com/logos/css-3.svg"
   },
   {
-    "id": 7,
     "name": "Sass",
     "color": "#CC6699",
     "logo": "https://cdn.svgporn.com/logos/sass.svg"
   },
   {
-    "id": 8,
     "name": "JavaScript",
     "color": "#F7DF1E",
     "logo": "https://cdn.svgporn.com/logos/javascript.svg"
   },
   {
-    "id": 9,
-    "name": "Typescript",
+    "name": "TypeScript",
     "color": "#007ACC",
     "logo": "https://cdn.svgporn.com/logos/typescript-icon.svg"
   },
   {
-    "id": 10,
     "name": "C#",
     "color": "#68217a",
     "logo": "https://www.flamingoajans.com/assets/vendors/devicon/icons/csharp/csharp-original.svg"
   },
-
   {
-    "id": 11,
     "name": "ionic",
     "color": "#3880FF",
     "logo": "https://cdn.svgporn.com/logos/ionic.svg"
   },
   {
-    "id": 12,
     "name": "Vuetify",
     "color": "#1867C0",
     "logo": "https://cdn.svgporn.com/logos/vuetifyjs.svg"
   },
   {
-    "id": 13,
     "name": "Bootstrap",
     "color": "#563D7C",
     "logo": "https://cdn.svgporn.com/logos/bootstrap.svg"
   },
   {
-    "id": 14,
     "name": "UIkit",
     "color": "#2396F3",
     "logo": "https://cdn.svgporn.com/logos/uikit.svg"
   },
   {
-    "id": 15,
     "name": "Git",
     "color": "#F05032",
     "logo": "https://cdn.svgporn.com/logos/git-icon.svg"

@@ -18,7 +18,6 @@
               </div>
               <span class="headline-card-type">Languages</span>
             </v-list-item-title>
-            <!-- TODO: make dynamic -->
             <v-list-item-subtitle>
               {{ liftTech }} accounts for {{ getReducedTechPercent(liftTech) }}%
               of all my projects
@@ -27,8 +26,7 @@
         </v-list-item>
 
         <div class="skill-logo__container flex-wrap">
-          <!-- TODO: only display usedTechs -->
-          <span v-for="tech in techs">
+          <span v-for="tech in usedLanguages">
             <yuSkillLogo :logo="tech.logo" :name="tech.name"></yuSkillLogo>
           </span>
         </div>
@@ -57,7 +55,6 @@
               </div>
               <span class="headline-card-type">Frameworks / Libraries</span>
             </v-list-item-title>
-            <!-- TODO: make dynamic -->
             <v-list-item-subtitle>
               {{ liftTech }} accounts for {{ getReducedTechPercent(liftTech) }}%
               of all my projects
@@ -101,6 +98,7 @@ export default {
   data: () => ({
     techs: JsonTechs,
     projectArticles: [],
+    usedLanguages: [],
   }),
 
   mounted() {
@@ -109,6 +107,9 @@ export default {
         this.projectArticles.push(page);
       }
     });
+
+    // merge all usedLanguage from articles
+    this.getUsedLanguages();
   },
 
   computed: {
@@ -123,7 +124,7 @@ export default {
       let allLanguages = [];
       let reducedLanguages;
 
-      // merge all techs from articles
+      // merge all language from articles
       this.projectArticles.forEach((article) => {
         allLanguages.push(...article.frontmatter.languages);
       });
@@ -142,6 +143,14 @@ export default {
   },
 
   methods: {
+    getUsedLanguages() {
+      this.calcUsedLanguages.forEach((language) => {
+        this.usedLanguages.push(
+          this.techs.find((tech) => tech.name == language.name)
+        );
+      });
+    },
+
     getReducedTechPercent(liftTech) {
       let liftedTech = this.calcUsedLanguages.find((x) => x.name == liftTech);
       !liftedTech ? (liftedTech = "Angular") : "";
