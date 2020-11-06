@@ -12,7 +12,7 @@ languages:
     percent: 70
   - name: Sass
     percent: 10
-framework:
+frameworks:
   - name: Bootstrap
   - name: Angular
 highlight: false

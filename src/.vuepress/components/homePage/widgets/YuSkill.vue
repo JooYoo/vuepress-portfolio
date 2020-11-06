@@ -50,7 +50,8 @@
                   {{ liftTech }}
                 </span>
                 <span class="headline__made-by">
-                  {{ getReducedTechPercent(liftTech) }}%
+                  {{ getUsedFrameworkCount(liftTech) }} /
+                  {{ projectArticles.length }}
                 </span>
               </div>
               <span class="headline-card-type">Frameworks / Libraries</span>
@@ -82,13 +83,13 @@
 </template>
 
 <script>
-import JsonTechs from "../../../data/techs.json";
-import yuSkillLogo from "./YuSkillLogo";
-import yuSkillProgressbars from "./YuSkillProgressbars";
-import { lift } from "../../service/yuSkillService";
+import JsonTechs from '../../../data/techs.json';
+import yuSkillLogo from './YuSkillLogo';
+import yuSkillProgressbars from './YuSkillProgressbars';
+import { lift } from '../../service/yuSkillService';
 
 export default {
-  name: "yuSkill",
+  name: 'yuSkill',
 
   components: {
     yuSkillLogo,
@@ -103,7 +104,7 @@ export default {
 
   mounted() {
     this.$site.pages.forEach((page) => {
-      if (page.frontmatter.type === "project") {
+      if (page.frontmatter.type === 'project') {
         this.projectArticles.push(page);
       }
     });
@@ -135,7 +136,7 @@ export default {
           total[name] = total[name] || { name, percent: 0 };
           total[name].percent += percent / articleCount;
           return total;
-        }, {})
+        }, {}),
       );
 
       return reducedLanguages;
@@ -146,17 +147,30 @@ export default {
     getUsedLanguages() {
       this.calcUsedLanguages.forEach((language) => {
         this.usedLanguages.push(
-          this.techs.find((tech) => tech.name == language.name)
+          this.techs.find((tech) => tech.name == language.name),
         );
       });
     },
 
+    getUsedFrameworkCount(liftTech) {
+      let allFrameworks = [];
+      let liftTechCount;
+
+      this.projectArticles.forEach((article) => {
+        allFrameworks.push(...article.frontmatter.frameworks);
+      });
+
+      liftTechCount = allFrameworks.filter((x) => x.name == liftTech).length;
+
+      return liftTechCount;
+    },
+
     getReducedTechPercent(liftTech) {
       let liftedTech = this.calcUsedLanguages.find((x) => x.name == liftTech);
-      !liftedTech ? (liftedTech = "Angular") : "";
+      !liftedTech ? (liftedTech = 'Angular') : '';
       let reducedTechPercent = Math.round(liftedTech.percent);
 
-      if (!reducedTechPercent) return "---";
+      if (!reducedTechPercent) return '---';
       return reducedTechPercent;
     },
 

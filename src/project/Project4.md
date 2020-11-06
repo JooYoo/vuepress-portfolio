@@ -12,7 +12,7 @@ languages:
     percent: 20
   - name: TypeScript
     percent: 70
-framework:
+frameworks:
   - name: Angular
   - name: ionic
 highlight: false

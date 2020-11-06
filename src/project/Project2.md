@@ -12,7 +12,7 @@ languages:
     percent: 10
   - name: CSS
     percent: 10
-framework:
+frameworks:
   - name: Node
 highlight: true
 ---
