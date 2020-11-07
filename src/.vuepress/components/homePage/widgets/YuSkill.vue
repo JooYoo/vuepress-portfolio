@@ -10,7 +10,7 @@
             <v-list-item-title class="headline">
               <div class="headline-container">
                 <span class="headline__tech" :style="setTitleColor(liftTech)">
-                  {{ liftTech }}
+                  {{ liftTech }}:
                 </span>
                 <span class="headline__made-by">
                   {{ getReducedTechPercent(liftTech) }}%
@@ -19,8 +19,7 @@
               <span class="headline-card-type">Languages</span>
             </v-list-item-title>
             <v-list-item-subtitle>
-              {{ liftTech }} accounts for {{ getReducedTechPercent(liftTech) }}%
-              of all my projects
+              of my projects developed by {{ liftTech }}
             </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
@@ -63,12 +62,13 @@
               </div>
               <span class="headline-card-type">Frameworks / Libraries</span>
             </v-list-item-title>
-            <v-list-item-subtitle> of all my projects </v-list-item-subtitle>
+            <v-list-item-subtitle>
+              of my projects developed by {{ liftFramework }}
+            </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
 
         <div class="skill-logo__container flex-wrap">
-          <!-- TODO: only display usedTechs -->
           <span v-for="tech in usedFrameworks">
             <yuSkillLogo
               :logo="tech.logo"
@@ -81,7 +81,7 @@
         <v-card-actions>
           <div class="skill-percent-bar">
             <yuSkillProgressbars
-              :usedTechs="calcUsedLanguages"
+              :usedTechs="calcUsedFrameworks"
             ></yuSkillProgressbars>
           </div>
         </v-card-actions>
@@ -120,11 +120,9 @@ export default {
 
     // merge all usedLanguage from articles
     this.getUsedLanguages();
-    console.log(this.usedLanguages);
 
     // merge all usedFramework
     this.getUsedFrameworks();
-    console.log(this.usedFrameworks);
   },
 
   computed: {
@@ -149,7 +147,7 @@ export default {
         allLanguages.push(...article.frontmatter.languages);
       });
 
-      // reduce (addition) all the languages which has the same name
+      // reduce (addition) all the languages which has the same name => {name: 'JavaScript', percent:'60'}
       reducedLanguages = Object.values(
         allLanguages.reduce((total, { name, percent }) => {
           total[name] = total[name] || { name, percent: 0 };
@@ -157,8 +155,34 @@ export default {
           return total;
         }, {}),
       );
-
       return reducedLanguages;
+    },
+
+    // summarize frameworks to => {name: 'React', percent:'20'}
+    calcUsedFrameworks() {
+      let articleCount = this.projectArticles.length;
+      let allFrameworks = [];
+      let reducedFrameworks;
+
+      // merge all frameworks from each article
+      this.projectArticles.forEach((article) => {
+        if (article.frontmatter.frameworks[0].name) {
+          allFrameworks.push(...article.frontmatter.frameworks);
+        }
+      });
+
+      // reduce all the frameworks => {name: 'React', percent:'20'}
+      reducedFrameworks = Object.values(
+        allFrameworks.reduce((total, { name, percent }) => {
+          total[name] = total[name] || { name, percent: 0 };
+          total[name].percent = this.getReducedFrameworkPercent(
+            total[name].name,
+          );
+          return total;
+        }, {}),
+      );
+
+      return reducedFrameworks;
     },
   },
 
@@ -201,8 +225,6 @@ export default {
       let allFrameworks = [];
       let liftFrameworkCount;
 
-      console.log(liftFramework);
-
       // how many article mark as 'liftFramework'
       this.projectArticles.forEach((article) => {
         allFrameworks.push(...article.frontmatter.frameworks);
@@ -211,6 +233,15 @@ export default {
         .length;
 
       return liftFrameworkCount;
+    },
+
+    getReducedFrameworkPercent(frameworkName) {
+      let numerator = this.getUsedFrameworkCount(frameworkName);
+      let denominator = this.projectArticles.length;
+
+      let result = (numerator / denominator) * 100;
+
+      return result;
     },
 
     getReducedTechPercent(liftTech) {

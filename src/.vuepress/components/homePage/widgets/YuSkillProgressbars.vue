@@ -3,17 +3,25 @@
     <div
       class="skill-progressbar"
       v-for="usedTech in usedTechs"
-      :style="setTechProgressUI(usedTech, liftTech, isHover)"
+      :style="
+        setTechProgressUI(
+          usedTech,
+          liftTech,
+          isHover,
+          liftFramework,
+          isFrameworkHover,
+        )
+      "
     ></div>
   </div>
 </template>
 
 <script>
-import JsonTechs from "../../../data/techs.json";
-import { lift } from "../../service/yuSkillService";
+import JsonTechs from '../../../data/techs.json';
+import { lift } from '../../service/yuSkillService';
 
 export default {
-  name: "yuSkillProgressbars",
+  name: 'yuSkillProgressbars',
 
   data: () => ({
     techs: JsonTechs,
@@ -31,14 +39,34 @@ export default {
     isHover() {
       return lift.isUp;
     },
+
+    liftFramework() {
+      return lift.framework;
+    },
+
+    isFrameworkHover() {
+      return lift.isFrameworkUp;
+    },
   },
 
   methods: {
-    setTechProgressUI(tech, liftTech, isHover) {
+    setTechProgressUI(
+      tech,
+      liftTech,
+      isHover,
+      liftFramework,
+      isFrameworkHover,
+    ) {
       return {
         backgroundColor: this.getColor(tech.name),
         width: `${tech.percent}%`,
-        transform: this.setProgressbarLift(tech.name, liftTech, isHover),
+        transform: this.setProgressbarLift(
+          tech.name,
+          liftTech,
+          isHover,
+          liftFramework,
+          isFrameworkHover,
+        ),
       };
     },
 
@@ -46,11 +74,21 @@ export default {
       return this.techs.find((obj) => obj.name == name).color;
     },
 
-    setProgressbarLift(currentTech, liftTech, isHover) {
-      if (liftTech == currentTech && isHover) {
-        return "scaleY(2)";
-      } else if (!isHover) {
-        return "scaleY(1)";
+    setProgressbarLift(
+      currentTech,
+      liftTech,
+      isHover,
+      liftFramework,
+      isFrameworkHover,
+    ) {
+      if (isFrameworkHover) {
+        // hover framework
+        return liftFramework == currentTech && isFrameworkHover
+          ? 'scaleY(2)'
+          : 'scaleY(1)';
+      } else if (isHover) {
+        // hover language
+        return liftTech == currentTech && isHover ? 'scaleY(2)' : 'scaleY(1)';
       }
     },
   },

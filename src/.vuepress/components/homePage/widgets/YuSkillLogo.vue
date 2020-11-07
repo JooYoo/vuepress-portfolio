@@ -7,7 +7,6 @@
       @mouseenter="toggleHover"
       @mouseleave="toggleHover"
     />
-    <!-- {{count}} -->
   </div>
 </template>
 
@@ -38,14 +37,14 @@ export default {
   methods: {
     toggleHover: function () {
       // pass hoverTech to observable
-      lift.isUp = !lift.isUp;
-      // this.isFramework ? (lift.framework = this.name) : (lift.tech = this.name);
 
       if (this.isFramework) {
-        // console.log('framework');
+        // hover framework icon
+        lift.isFrameworkUp = !lift.isFrameworkUp;
         lift.framework = this.name;
       } else {
-        // console.log('language');
+        // hover language icon
+        lift.isUp = !lift.isUp;
         lift.tech = this.name;
       }
 
