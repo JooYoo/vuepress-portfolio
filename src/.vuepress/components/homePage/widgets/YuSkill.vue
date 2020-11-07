@@ -27,7 +27,11 @@
 
         <div class="skill-logo__container flex-wrap">
           <span v-for="tech in usedLanguages">
-            <yuSkillLogo :logo="tech.logo" :name="tech.name"></yuSkillLogo>
+            <yuSkillLogo
+              :logo="tech.logo"
+              :name="tech.name"
+              :isFramework="false"
+            ></yuSkillLogo>
           </span>
         </div>
 
@@ -46,27 +50,31 @@
           <v-list-item-content>
             <v-list-item-title class="headline">
               <div class="headline-container">
-                <span class="headline__tech" :style="setTitleColor(liftTech)">
-                  {{ liftTech }}
+                <span
+                  class="headline__tech"
+                  :style="setTitleColor(liftFramework)"
+                >
+                  {{ liftFramework }}:
                 </span>
                 <span class="headline__made-by">
-                  {{ getUsedFrameworkCount(liftTech) }} /
+                  {{ getUsedFrameworkCount(liftFramework) }} /
                   {{ projectArticles.length }}
                 </span>
               </div>
               <span class="headline-card-type">Frameworks / Libraries</span>
             </v-list-item-title>
-            <v-list-item-subtitle>
-              {{ liftTech }} accounts for {{ getReducedTechPercent(liftTech) }}%
-              of all my projects
-            </v-list-item-subtitle>
+            <v-list-item-subtitle> of all my projects </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
 
         <div class="skill-logo__container flex-wrap">
           <!-- TODO: only display usedTechs -->
-          <span v-for="tech in techs">
-            <yuSkillLogo :logo="tech.logo" :name="tech.name"></yuSkillLogo>
+          <span v-for="tech in usedFrameworks">
+            <yuSkillLogo
+              :logo="tech.logo"
+              :name="tech.name"
+              :isFramework="true"
+            ></yuSkillLogo>
           </span>
         </div>
 
@@ -100,6 +108,7 @@ export default {
     techs: JsonTechs,
     projectArticles: [],
     usedLanguages: [],
+    usedFrameworks: [],
   }),
 
   mounted() {
@@ -111,12 +120,22 @@ export default {
 
     // merge all usedLanguage from articles
     this.getUsedLanguages();
+    console.log(this.usedLanguages);
+
+    // merge all usedFramework
+    this.getUsedFrameworks();
+    console.log(this.usedFrameworks);
   },
 
   computed: {
     // get hovered tech from Observable
     liftTech() {
       return lift.tech;
+    },
+
+    // get hovered framework from observable
+    liftFramework() {
+      return lift.framework;
     },
 
     // summarize all languages from articles
@@ -152,17 +171,46 @@ export default {
       });
     },
 
-    getUsedFrameworkCount(liftTech) {
+    getUsedFrameworks() {
+      this.getUniqueFrameworkName().forEach((frameworkName) => {
+        this.usedFrameworks.push(
+          this.techs.find((tech) => tech.name == frameworkName),
+        );
+      });
+    },
+
+    getUniqueFrameworkName() {
+      // get unique framework name
+      let frameworkNames = [];
       let allFrameworks = [];
-      let liftTechCount;
 
       this.projectArticles.forEach((article) => {
         allFrameworks.push(...article.frontmatter.frameworks);
       });
 
-      liftTechCount = allFrameworks.filter((x) => x.name == liftTech).length;
+      allFrameworks.forEach((framework) => {
+        framework.name ? frameworkNames.push(framework.name) : '';
+      });
 
-      return liftTechCount;
+      let uniqFrameworks = [...new Set(frameworkNames)];
+
+      return uniqFrameworks;
+    },
+
+    getUsedFrameworkCount(liftFramework) {
+      let allFrameworks = [];
+      let liftFrameworkCount;
+
+      console.log(liftFramework);
+
+      // how many article mark as 'liftFramework'
+      this.projectArticles.forEach((article) => {
+        allFrameworks.push(...article.frontmatter.frameworks);
+      });
+      liftFrameworkCount = allFrameworks.filter((x) => x.name == liftFramework)
+        .length;
+
+      return liftFrameworkCount;
     },
 
     getReducedTechPercent(liftTech) {

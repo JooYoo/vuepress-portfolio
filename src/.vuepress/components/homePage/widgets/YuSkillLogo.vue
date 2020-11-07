@@ -12,15 +12,16 @@
 </template>
 
 <script>
-import JsonTechs from "../../../data/techs.json";
-import { lift } from "../../service/yuSkillService";
+import JsonTechs from '../../../data/techs.json';
+import { lift } from '../../service/yuSkillService';
 
 export default {
-  name: "yuSkillLogo",
+  name: 'yuSkillLogo',
 
   props: {
     name: String,
     logo: String,
+    isFramework: Boolean,
   },
 
   data: () => ({
@@ -37,9 +38,16 @@ export default {
   methods: {
     toggleHover: function () {
       // pass hoverTech to observable
-      //FIXME:
       lift.isUp = !lift.isUp;
-      lift.tech = this.name;
+      // this.isFramework ? (lift.framework = this.name) : (lift.tech = this.name);
+
+      if (this.isFramework) {
+        // console.log('framework');
+        lift.framework = this.name;
+      } else {
+        // console.log('language');
+        lift.tech = this.name;
+      }
 
       return (this.isHover = !this.isHover);
     },
@@ -47,7 +55,7 @@ export default {
     hoverLogoStyle: function (isHover) {
       if (isHover) {
         return {
-          transform: "scale(1.2)",
+          transform: 'scale(1.2)',
         };
       }
     },
