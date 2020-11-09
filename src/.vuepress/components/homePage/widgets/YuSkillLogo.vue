@@ -1,7 +1,7 @@
 <template>
   <div>
     <img
-      class="skill-logo"
+      :class="setLogoSize(name)"
       :src="logo"
       :style="hoverLogoStyle(isHover)"
       @mouseenter="toggleHover"
@@ -58,6 +58,10 @@ export default {
         };
       }
     },
+
+    setLogoSize: (name) => {
+      return name == 'Vuepress' ? 'skill-logo--big' : 'skill-logo';
+    },
   },
 };
 </script>
@@ -65,6 +69,11 @@ export default {
 <style>
 .skill-logo {
   width: 50px;
+  margin: 20px;
+}
+
+.skill-logo--big {
+  width: 65px;
   margin: 20px;
 }
 </style>

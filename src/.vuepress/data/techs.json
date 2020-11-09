@@ -78,5 +78,10 @@
     "name": "Stylus",
     "color": "#333333",
     "logo": "https://cdn.svgporn.com/logos/stylus.svg"
+  },
+  {
+    "name": "Vuepress",
+    "color": "#6E8EAF",
+    "logo": "https://vuepress.vuejs.org/hero.png"
   }
 ]
