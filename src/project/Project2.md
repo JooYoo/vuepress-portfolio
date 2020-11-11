@@ -14,7 +14,7 @@ languages:
     percent: 10
 frameworks:
   - name: Node
-highlight: true
+highlight: false
 ---
 
 # My second project

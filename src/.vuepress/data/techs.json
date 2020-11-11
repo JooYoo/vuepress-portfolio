@@ -83,5 +83,10 @@
     "name": "Vuepress",
     "color": "#6E8EAF",
     "logo": "https://vuepress.vuejs.org/hero.png"
+  },
+  {
+    "name": "chartjs",
+    "color": "#FF829D",
+    "logo": "https://www.chartjs.org/img/chartjs-logo.svg"
   }
 ]

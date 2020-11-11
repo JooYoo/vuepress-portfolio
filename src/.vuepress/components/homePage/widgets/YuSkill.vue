@@ -19,7 +19,7 @@
               <span class="headline-card-type">Languages</span>
             </v-list-item-title>
             <v-list-item-subtitle>
-              of my projects developed by {{ liftTech }}
+              of the code in all my projects is written in {{ liftTech }}
             </v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
