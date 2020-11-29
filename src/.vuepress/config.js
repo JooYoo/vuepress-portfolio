@@ -31,7 +31,7 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Project', link: '/project/' },
-      { text: 'Blog', link: '/blog/' },
+      { text: 'Gotcha', link: '/blog/' },
     ],
     // sidebar: {
     //   '/blog/': [
