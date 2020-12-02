@@ -7,9 +7,8 @@ type: blog
 # sidebar: auto
 ---
 
-# Debug WebApp on Android device
-
-2020.11.29
+<h1 align="center">Debug WebApp on Android device</h1>
+<div align="center">2020.11.29</div>
 
 ::: tip Contents
 [[toc]]
@@ -55,3 +54,9 @@ A WebApp is developed at a local PC. How to debug the WebApp on the phone?
 - Phone: start Chrome
 - PC: find the _input-box_ `Open tab with url` inside of _DevTool_ page, then input the same IP Address as above `http://192.168.x.x:5500/`, then click _open_
 - The WebApp should open on the Phone and an extra browser window should be opened on the PC at the same time.
+
+## Step 4: debugging on the Phone
+
+- PC: under the _input-box_, in the _tab-list_ find the WebApp
+- PC: click `inspect`. A new window should be opened, and the same WebApp instance should run both on PC and Phone.
+- The debugging tool in Chrome can be used to debug the WebApp instance on the phone.
