@@ -1,7 +1,7 @@
 ---
 title: Debug WebApp on Android device
 date: 2020/11/29
-keyword: JavaScript
+keyword: dev
 description: a skill mobile web dev must know
 type: blog
 # sidebar: auto
