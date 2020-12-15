@@ -14,7 +14,7 @@ type: blog
 [[toc]]
 :::
 
-## 🔗 Linked
+## 🔗 Related Project
 
 ⎋ [DailySpinner](/project/01.DailySpinner.md)
 
