@@ -47,6 +47,7 @@ export default {
   top: 0;
   right: 0;
   left: 0;
+  height: 100vmin;
   padding-left: 0;
   padding-right: 0;
 }

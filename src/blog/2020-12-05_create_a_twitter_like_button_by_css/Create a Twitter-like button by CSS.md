@@ -34,7 +34,7 @@ This trial is inspired by the like button from Twitter.
 
 ## 🔗 Related Project
 
-- ⎋ [DailySpinner](/project/01.DailySpinner.md)
+- [DailySpinner](/project/01.DailySpinner.md)
 - After spin, the selected person will have a particle effect.
 
 ## 🧾 Related Theme
