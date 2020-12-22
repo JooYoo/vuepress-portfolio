@@ -1,3 +1,12 @@
+<h1 align="center">Yu Portfolio</h1>
+<div align="center">2020.5 ~ Now</div>
+
+<p align="center">
+  <strong>
+    <a href="https://zhuyu.netlify.app/">🤹🏻‍♂️ &nbsp; Demo</a>
+  </strong>
+</p>
+
 # About
 
 A website to introduce myself, list the projects I developed in my free time, share what I've learned about development.
@@ -7,10 +16,6 @@ A website to introduce myself, list the projects I developed in my free time, sh
 <img src="https://media1.giphy.com/media/AKamuejzQCIp40xv87/giphy.gif" />
 </kbd>
 </p>
-
-# Demo
-
-- [https://bit.ly/zhu-yu](https://bit.ly/zhu-yu)
 
 # User story
 
