@@ -128,7 +128,7 @@ export default {
 }
 
 .v-subheader--inset {
-  margin-left: 61px;
+  margin-left: 55px;
 }
 
 .icon-start {

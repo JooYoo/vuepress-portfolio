@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="project-container">
     <v-container fluid grid-list-xl>
       <v-layout row wrap>
         <v-flex xs12 md6 v-for="page in pages">
@@ -69,6 +69,10 @@ export default {
 </script>
 
 <style>
+.project-container {
+  height: 100vmin;
+}
+
 .project-overview__card {
   border-radius: 10px !important;
 }
