@@ -65,7 +65,7 @@
     "logo": "https://cdn.svgporn.com/logos/bootstrap.svg"
   },
   {
-    "name": "UIkit",
+    "name": "Uikit",
     "color": "#2396F3",
     "logo": "https://cdn.svgporn.com/logos/uikit.svg"
   },
@@ -88,5 +88,15 @@
     "name": "chartjs",
     "color": "#FF829D",
     "logo": "https://www.chartjs.org/img/chartjs-logo.svg"
+  },
+  {
+    "name": "Tensorflowjs",
+    "color": "#FF6F00",
+    "logo": "https://cdn.svgporn.com/logos/tensorflow.svg"
+  },
+  {
+    "name": "ml5js",
+    "color": "#BA00FF",
+    "logo": "https://ml5js.org/static/ml5_logo_purple-88e082b8dc81d8729f95bcc092db90c5.png"
   }
 ]
