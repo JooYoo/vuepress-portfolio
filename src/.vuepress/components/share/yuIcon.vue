@@ -1,6 +1,6 @@
 <template>
   <svg
-    v-else-if="logo === 'Git'"
+    v-if="logo === 'Git'"
     class="yuIcon__display"
     role="img"
     viewBox="0 0 24 24"
@@ -86,7 +86,7 @@
 
 <script>
 export default {
-  name: "yuIcon",
+  name: 'yuIcon',
 
   props: {
     logo: String,
