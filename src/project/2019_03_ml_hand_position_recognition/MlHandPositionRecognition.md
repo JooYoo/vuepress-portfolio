@@ -22,8 +22,8 @@ highlight: false
 
 <p align="center">
   <strong>
-    <a href="https://jooyoo.github.io/ML5-mlknn/">🤹🏻‍♂️ &nbsp; Demo</a>
-    ・ <a href="https://github.com/JooYoo/ML5-mlknn">👨🏻‍💻 &nbsp; Github</a>
+    <a href="https://jooyoo.github.io/ML5-mlknn/" target="_blank">🚀 &nbsp; Demo</a>
+    ・ <a href="https://github.com/JooYoo/ML5-mlknn" target="_blank">👨🏻‍💻 &nbsp; Github</a>
   </strong>
 </p>
 

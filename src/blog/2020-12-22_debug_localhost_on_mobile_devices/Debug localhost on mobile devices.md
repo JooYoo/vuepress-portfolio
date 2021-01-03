@@ -22,7 +22,7 @@ If we want to develop a _mobile version_ for a WebApp. It is always a challenge 
 
 A WebApp is already running at the **localhost** in dev pc, how to debug the WebApp on mobile devices directly.
 
-## 🛠 Dev Process
+## 🦶🏻 Steps
 
 ### Step 0. prepare devices
 

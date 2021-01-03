@@ -2,7 +2,7 @@
 title: Create a Twitter-like button by CSS
 date: 2020/12/05
 keyword: CSS
-description: A like-button with particle effect by CSS
+description: like-button with particle effect by CSS
 type: blog
 # sidebar: auto
 ---
@@ -56,7 +56,7 @@ This trial is inspired by the like button from Twitter.
 └── index.html
 ```
 
-## 🛠 Dev Process
+## 🦶🏻 Steps
 
 ### CSS Twitter like-button <Badge text="goal 1" type="warning"/>
 
