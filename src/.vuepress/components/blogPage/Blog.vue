@@ -9,9 +9,9 @@
               class="text--primary"
               v-text="page.frontmatter.keyword"
             ></v-list-item-subtitle>
-            <v-list-item-subtitle
+            <!-- <v-list-item-subtitle
               v-text="page.frontmatter.description"
-            ></v-list-item-subtitle>
+            ></v-list-item-subtitle> -->
           </v-list-item-content>
 
           <v-list-item-action>
@@ -33,7 +33,7 @@ export default {
   }),
   mounted() {
     this.$site.pages.forEach((page) => {
-      if (page.frontmatter.type === "blog") {
+      if (page.frontmatter.type === 'blog') {
         this.pages.push(page);
       }
     });

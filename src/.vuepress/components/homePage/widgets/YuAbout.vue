@@ -33,14 +33,12 @@
           </p>
           <p class="about__content">
             I love challenges. I have been working in Germany since 2015. In the
-            meantime, I studied German and improved my English. Now as a
-            Frontend Developer, working in the Automotive Industry. My current
-            company provides software development services for several premium
-            sports car brands in southern Germany. I am responsible for the
-            development and maintenance of software for the In-Vehicle System.
-            So far I have been participating in the development and maintenance
-            of functions and features such as media player, navigation system,
-            air conditioning, seat massage, phone, rear-seat entertainment, etc.
+            meantime, I studied German. Now as a Frontend Developer, working in
+            the Automotive Industry. I work close with UI/UX designer to
+            implement design ideas into usable software for Automotive
+            Infotainment-System. So far, I have participated in the development
+            of various features for several vehicle models, such as media
+            player, navigation, seat massage, phone, etc.
           </p>
           <p class="about__content">
             I love life. In my free time, I like to try different technologies
