@@ -98,5 +98,15 @@
     "name": "ml5js",
     "color": "#BA00FF",
     "logo": "https://ml5js.org/static/ml5_logo_purple-88e082b8dc81d8729f95bcc092db90c5.png"
+  },
+  {
+    "name": "Express",
+    "color": "#000000",
+    "logo": "https://cdn.svgporn.com/logos/express.svg"
+  },
+  {
+    "name": "MongoDB",
+    "color": "#58AA51",
+    "logo": "https://cdn.svgporn.com/logos/mongodb.svg"
   }
 ]
