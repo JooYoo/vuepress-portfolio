@@ -3,7 +3,7 @@
 
 <p align="center">
   <strong>
-    <a href="https://zhuyu.netlify.app/">🤹🏻‍♂️ &nbsp; Demo</a>
+    <a href="https://zhuyu.netlify.app/">🚀 &nbsp; Demo</a>
   </strong>
 </p>
 
