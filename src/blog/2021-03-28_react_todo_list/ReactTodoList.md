@@ -53,7 +53,7 @@ create a simple **Todo List** with following features:
 
 ### 0. uuid
 
-We use _uuid_ to generate random id for each **todo**, so that it will easier for use to iterate todos.
+We use _uuid_ to generate random id for each **todo**, so that it will easier for us to iterate todos.
 
 ```bash
 $ npm i uuid
