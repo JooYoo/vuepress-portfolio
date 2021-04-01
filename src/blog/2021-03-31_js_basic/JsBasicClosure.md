@@ -1,0 +1,43 @@
+---
+title: 'JavaScript Basic: Closure'
+date: 2021/04/01
+keyword: JavaScript
+type: blog
+---
+
+<h1 align="center">JavaScript Basic: Closure</h1>
+<div align="center">2021.04.01</div>
+
+::: tip Contents
+[[toc]]
+:::
+
+# ⛓ Link to
+
+- 🔗 &nbsp; [Closure](JsBasicClosure.md)
+- 🔗 &nbsp; [Hoisting](JsBasicHoisting.md)
+- 🔗 &nbsp; [Asynchronous](JsBasicAsynchronous.md)
+
+# 🙋🏻‍♂️ Q & A
+
+### Q1. What is the out?
+
+```js
+let x = 100;
+
+function logx() {
+  console.log(x);
+}
+
+logx();
+```
+
+::: details 🔑
+
+```js
+100;
+```
+
+- The `x` is defined at a higher scope compare with the scope of function `logx()`. It's why `logx()` can use the `x` directly
+
+:::
