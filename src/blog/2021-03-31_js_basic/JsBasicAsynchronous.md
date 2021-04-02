@@ -14,6 +14,7 @@ type: blog
 
 # ⛓ Link to
 
+- 🔗 &nbsp; [Variable](JsBasicVariable.md)
 - 🔗 &nbsp; [Closure](JsBasicClosure.md)
 - 🔗 &nbsp; [Hoisting](JsBasicHoisting.md)
 - 🔗 &nbsp; [Asynchronous](JsBasicAsynchronous.md)
