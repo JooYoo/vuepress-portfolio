@@ -42,7 +42,8 @@ create a simple **Todo List** with following features:
 ## ⛓ Link to
 
 - 🔗 &nbsp; [React TodoList](../2021-03-28_react_todo_list/ReactTodoList.md)
-- 🔗 &nbsp; [JavaScript TodoList]()
+- 🔗 &nbsp; [JavaScript TodoList](JsTodoList.md)
+- 🔗 &nbsp; [JavaScript TodoList with Rest API](JsTodoListApi.md)
 
 ## 🦶🏻 Steps
 
