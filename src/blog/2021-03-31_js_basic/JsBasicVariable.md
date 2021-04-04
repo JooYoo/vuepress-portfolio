@@ -18,6 +18,7 @@ type: blog
 - 🔗 &nbsp; [Closure](JsBasicClosure.md)
 - 🔗 &nbsp; [Hoisting](JsBasicHoisting.md)
 - 🔗 &nbsp; [Asynchronous](JsBasicAsynchronous.md)
+- 🔗 &nbsp; [Arrow Function](JsBasicArrowFunction.md)
 
 # 🙋🏻‍♂️ Q & A
 
@@ -39,5 +40,35 @@ type: blog
    ```
 
    - `let` has block scope, it's available inside of the _if-block_.
+
+:::
+
+### Q2. Does the following code valid, why?
+
+```jsx
+const constVar = [1, 2];
+constVar.push(3);
+console.log(constVar);
+```
+
+::: details 🔑
+
+- Valid.
+- `constVar`: an Array is assigned to a const variable. There is no new array assign to the variable, so it's no problem.
+- The following code is invalid.
+
+  ```jsx
+  const constVar = [1, 2];
+  constVar = [3, 4];
+  ```
+
+:::
+
+### Q3. What's the type of _undefined_ and _null_
+
+::: details 🔑
+
+- `undefined`: undefined
+- `null`: object
 
 :::

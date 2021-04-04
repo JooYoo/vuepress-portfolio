@@ -18,10 +18,11 @@ type: blog
 - 🔗 &nbsp; [Closure](JsBasicClosure.md)
 - 🔗 &nbsp; [Hoisting](JsBasicHoisting.md)
 - 🔗 &nbsp; [Asynchronous](JsBasicAsynchronous.md)
+- 🔗 &nbsp; [Arrow Function](JsBasicArrowFunction.md)
 
 # 🙋🏻‍♂️ Q & A
 
-### Q1. What is the out?
+### Q1. What is the output?
 
 ```js
 let x = 100;

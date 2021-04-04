@@ -18,6 +18,7 @@ type: blog
 - 🔗 &nbsp; [Closure](JsBasicClosure.md)
 - 🔗 &nbsp; [Hoisting](JsBasicHoisting.md)
 - 🔗 &nbsp; [Asynchronous](JsBasicAsynchronous.md)
+- 🔗 &nbsp; [Arrow Function](JsBasicArrowFunction.md)
 
 # 🙋🏻‍♂️ Q & A
 
