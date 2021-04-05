@@ -53,9 +53,15 @@ create a simple **Todo List** with following features, and update the data to **
 
 ## 🦶🏻 Steps
 
-### 0. uuid
+### 0. id
 
-- It's neccesarry for adding new Todo
+```js
+const xId = () => {
+  return Math.floor(Math.random() * 1000000);
+};
+```
+
+- The function will return a random number as the ID of each todo when needed
 
 ### 1. HTML
 
@@ -104,9 +110,9 @@ const renderTodo = (todo) => {
 ### 4. retrieve todos
 
 ```jsx
-const retriveTodos = (data) => {
+const retriveTodos = (items) => {
   listEl.innerHTML = '';
-  data.forEach(renderTodo);
+  items.forEach(renderTodo);
 };
 ```
 
@@ -114,13 +120,33 @@ const retriveTodos = (data) => {
 - `""`: when the function is called each time, clean up the old elements in `todoListEl`, so that the new elements can be rendered.
 
 ```jsx
-// local data
-let todos = "";
+/**
+ * init data
+ */
+const initTodos = [
+  {
+    id: xId(),
+    title: "Switch",
+    completed: false
+  },
+  {
+    id: xId(),
+    title: "xBox",
+    completed: false
+  },
+  {
+    id: xId(),
+    title: "PS5",
+    completed: true
+  }
+];
+
+let todos = initTodos;
 
 /**
  * API handling
  */
-const getTodosApi = () => {
+const getApiTodos = () => {
   fetch("https://jsonplaceholder.typicode.com/todos?_limit=5")
     .then((res) => res.json())
     .then((data) => {
@@ -131,10 +157,10 @@ const getTodosApi = () => {
 
 ......
 
-getTodosApi();
+getApiTodos();
 ```
 
-- `todos`: the local data-resource for UI update
+- `todos`: the local data-resource for UI update. If we get data from API the static todos will be overwritten
 - `fetch`:
   - get data from endpoint by promise
   - pass the data to local-data-resource
@@ -143,10 +169,10 @@ getTodosApi();
 ### 5. delete todo
 
 ```jsx
-const deleteTodoApi = (id) => {
+const deleteApiTodo = (id) => {
   fetch(`https://jsonplaceholder.typicode.com/todos/${id}`, {
     method: 'DELETE',
-  }).then((res) => console.log(res));
+  }).then((res) => console.log('DELETE: ', res));
 };
 ```
 
@@ -155,37 +181,39 @@ const deleteTodoApi = (id) => {
 
 ```jsx
 window.removeTodo = (id) => {
-  // ui
-  todos = todos.filter((todo) => todo.id !== id);
-  retriveTodos(todos);
+  const nextTodos = todos.filter((todo) => todo.id !== id);
+  retriveTodos(nextTodos);
 
-  // api
-  deleteTodoApi(id);
+  // API
+  deleteApiTodo(id);
+  // update local data
+  todos = nextTodos;
 };
 ```
 
 - ❗️ `window`: It's actually a normal function. It's a bug in *CodeSandbox*, otherwise, the function undefined error appears.
 - `filter`: get the todos which not match the selected todo
 - `renderTodos`: remove the previous todos, render the new todos
+- after modifier the todos, the local data needs to be updated
 
 ### 6. update todo
 
 ```jsx
-const updateTodoApi = (id) => {
-  fetch(`https://jsonplaceholder.typicode.com/todos/${id}`, {
+const updateApiTodo = (todo) => {
+  fetch(`https://jsonplaceholder.typicode.com/todos/${todo.id}`, {
     method: 'PUT',
     body: JSON.stringify({
       userId: 1,
-      id: id,
-      title: todos.find((todo) => todo.id === id).title,
-      completed: !todos.find((todo) => todo.id === id).completed,
+      id: todo.id,
+      title: todo.title,
+      completed: !todo.completed,
     }),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
   })
     .then((res) => res.json())
-    .then((data) => console.log('update:', data));
+    .then((data) => console.log('PUT: ', data));
 };
 ```
 
@@ -195,23 +223,34 @@ const updateTodoApi = (id) => {
 
 ```jsx
 window.checkTodo = (id) => {
-  // local data
-  todos.find((todo) => todo.id === id).isDone = !todos.find(
-    (todo) => todo.id === id,
-  ).isDone;
+  const nextTodos = todos.map((todo) => {
+    if (todo.id === id) {
+      // API
+      updateApiTodo(todo);
+      // UI
+      return { ...todo, completed: !todo.completed };
+    }
+    return todo;
+  });
 
-  // API
-  updateTodoApi(id);
+  // UI
+  retriveTodos(nextTodos);
+
+  // update local data
+  todos = nextTodos;
 };
 ```
 
 - The UI works as default.
-- `find`: find out the todo which has the same id as the selected todo, toggle the property *isDone*.
+- `map`: map todos to create _nextTodos_ when find the match todo,
+  - update the API data
+  - update the current todo
+- update the local todos as well
 
 ### 7. add todo
 
 ```jsx
-const addTodoApi = (newTodo) => {
+const postApiTodo = (newTodo) => {
   fetch('https://jsonplaceholder.typicode.com/todos', {
     method: 'POST',
     body: JSON.stringify({
@@ -225,7 +264,7 @@ const addTodoApi = (newTodo) => {
     },
   })
     .then((res) => res.json())
-    .then((data) => console.log('post:', data));
+    .then((data) => console.log('POST: ', data));
 };
 ```
 
@@ -238,16 +277,18 @@ const addTodo = (e) => {
   // prevent refresh
   e.preventDefault();
 
-  // invalidation
+  // validation
   if (!inputEl.value.trim()) return;
 
-  // new todo
+  // new Todo
   const newTodo = {
-    userId: 1,
-    id: uuid(),
+    id: xId(),
     title: inputEl.value,
     completed: false,
   };
+
+  // API
+  postApiTodo(newTodo);
 
   // data
   todos.push(newTodo);
@@ -255,12 +296,11 @@ const addTodo = (e) => {
   // ui
   renderTodo(newTodo);
 
-  // API
-  addTodoApi(newTodo);
-
   // clean up input
   inputEl.value = '';
 };
+
+formEl.addEventListener('submit', addTodo);
 ```
 
 - `preventDefault`: prevent the form refresh after press Enter key
