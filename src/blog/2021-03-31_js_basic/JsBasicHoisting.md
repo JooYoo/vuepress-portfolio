@@ -19,6 +19,7 @@ type: blog
 - 🔗 &nbsp; [Hoisting](JsBasicHoisting.md)
 - 🔗 &nbsp; [Asynchronous](JsBasicAsynchronous.md)
 - 🔗 &nbsp; [Arrow Function](JsBasicArrowFunction.md)
+- 🔗 &nbsp; [Class & Prototype](JsBasicClassPrototype.md)
 
 # 🙋🏻‍♂️ Q & A
 
