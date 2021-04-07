@@ -73,3 +73,16 @@ console.log(constVar);
 - `null`: object
 
 :::
+
+### Q4. Does the following code valid, why?
+
+```js
+const arr = [1, 2];
+arr[0] = 6;
+```
+
+::: details 🔑
+
+- valid
+
+:::
