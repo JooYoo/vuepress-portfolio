@@ -465,3 +465,179 @@ reverseWords(str); //=> "I evol !tpircSavaJ"
 - `reversedWords.join(' ')`: join the words back, and seperate by empty-space
 
 :::
+
+### Q12. Capitalization
+
+Given a phrase, capitalize every word.
+
+```js
+const str = 'hello world';
+
+capitalizeWords(str); // => "Hello World"
+```
+
+::: details 🔑
+
+```js
+const str = 'hello world';
+
+const capitalizeWords = (str) => {
+  const words = str.split(' ');
+  const capitalWords = [];
+
+  for (const word of words) {
+    capitalWords.push(word[0].toUpperCase() + word.slice(1));
+  }
+
+  return capitalWords.join(' ');
+};
+
+capitalizeWords(str); // => "Hello World"
+```
+
+- `words`: splite sentence to words and hold by an array
+- `word[0].toUpperCase()`: get the first char of each word and capitalize it
+- `word.slice(1)`: slice from 1st char (include 1st char). Only keep the chars from 1st position.
+- `+`: combine the capital char and rest chars into an element, push it to new array
+
+:::
+
+### Q13. Caesar Cipher
+
+Given a phrase, substitute each character by shifting it up or down the alphabet by a given integer. If necessary, the shifting should wrap around back to the beginning or end of the alphabet.
+
+```js
+const str = 'I love JavaScript!';
+
+caesarCipher(str, 100); //=> "E hkra FwrwOynelp!"
+caesarCipher(str, -100); //=> "M pszi NezeWgvmtx!"
+```
+
+::: details 🔑
+
+```js
+const str = 'I love JavaScript!';
+
+const caesarCipher = (str, num) => {
+  const alphabets = 'abcdefghijklmnopqrstuvwxyz'.split('');
+  const input = str.toLowerCase();
+  let output = '';
+
+  for (let i = 0; i < input.length; i++) {
+    const char = input[i];
+
+    // handle white-space
+    if (alphabets.indexOf(char) === -1) {
+      output += char;
+      continue;
+    }
+
+    // calc output-char-index
+    let oIndex = alphabets.indexOf(char) + (num % 26);
+    if (oIndex > 25) oIndex -= 26;
+    if (oIndex < 0) oIndex += 26;
+
+    // build output-chars
+    output +=
+      str[i] === input[i] ? alphabets[oIndex] : alphabets[oIndex].toUpperCase();
+  }
+
+  return output;
+};
+
+caesarCipher(str, -100);
+```
+
+1. prepare
+
+- `alphabets`: 26 english alphabets hold by an array
+- `input`: the original string to lower case
+- `output`: empty variable for result
+
+2. skip special symbols
+
+- `if (alphabets.indexOf(char) === -1)`: based on the alphabets, if the index is -1 means the char not exist in the alphabets
+- `continue`: then just put the special symbols to the output, continue the loop
+
+3. calculate output-char-index
+
+- `num % 26`: how far the output index should be shift, based on the 26 counts of the alphabets
+- `if (oIndex > 25) oIndex -= 26`: If the shift index greater than 25, then reduce 26, so that the index is wrapped around from the beginning
+- `if (oIndex < 0) oIndex += 26`: If the shift index less than 0, then plus 26, so that the index can be found in the alphabet
+
+4. build output
+
+- `str[i] === input[i]`: check capitalize
+
+:::
+
+### Q14. Ransom Note
+
+Given a magazine of words and a ransom note, determine if it’s possible to “cut out” and create the ransom note from the magazine words.
+
+```js
+const mag = 'I love JavaScript do you love JavaScript';
+const nt1 = 'I love you';
+const nt2 = 'I miss you';
+
+ransomNote(nt1, mag); //=> true
+ransomNote(nt2, mag); //=> false
+```
+
+::: details 🔑
+
+```js
+const mag = 'I love JavaScript do you love JavaScript';
+const nt1 = 'I love you';
+const nt2 = 'I miss you';
+
+const ransomNote = (note, magazine) => {
+  const noteArr = note.split(' ');
+  const magazineArr = magazine.split(' ');
+  const magazineObj = {};
+  let isInclude = true;
+
+  // build magazineObj as word:count
+  magazineArr.forEach((word) => {
+    if (!magazineObj[word]) magazineObj[word] = 0;
+    magazineObj[word]++;
+  });
+
+  // check if note match magazine
+  noteArr.forEach((word) => {
+    if (magazineObj[word]) {
+      magazineObj[word]--;
+
+      if (magazineObj[word] < 0) isInclude = false;
+    } else {
+      isInclude = false;
+    }
+  });
+
+  return isInclude;
+};
+
+ransomNote(nt1, mag); // => true
+ransomNote(nt2, mag); // => false
+```
+
+1. prepare
+
+- `noteArr`: split note and hold the words in array
+- `magazineArr`: split magazine and hold the words in array
+- `magazineObj`: empty object for later building the dictionary
+- `isInclude`: the output result
+
+2. build _magazine Object_
+
+- iterate magazine array
+- `if (!magazineObj[word])`: if the word not exist yet, then set the word as key, 0 as value.
+- `magazineObj[word]++`: the work already exist, +1 to it's value
+
+3. check if note match magazine
+
+- iterate note array
+- `if (magazineObj[word])`: if the magazineObj includes the current word, -1 from the value of the word
+- `if (magazineObj[word] < 0)`: if the magazineObj doesn't have enough this word for note, set the result as false
+
+:::
