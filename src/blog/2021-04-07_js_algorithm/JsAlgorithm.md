@@ -641,3 +641,112 @@ ransomNote(nt2, mag); // => false
 - `if (magazineObj[word] < 0)`: if the magazineObj doesn't have enough this word for note, set the result as false
 
 :::
+
+### Q15. Mean, Median, and Mode
+
+Given an array of numbers, calculate the mean, median, and mode.
+
+```js
+const arr = [5, 1, 3, 2, 4, 4, 5];
+
+mean(); // => 3.45
+median(); // => 4
+mode(); // => [4, 5]
+```
+
+::: details 🔑
+
+```js
+const arr = [5, 1, 3, 2, 4, 4, 5];
+
+class Calc {
+  constructor(arr) {
+    this.arr = arr;
+  }
+
+  mean() {
+    const reducer = (acc, curr) => acc + curr;
+    const res = this.arr.reduce(reducer) / this.arr.length;
+
+    return res.toFixed(2);
+  }
+
+  median() {
+    const sort = this.arr.sort();
+    const isEven = sort.length % 2 === 0 ? true : false;
+    let res = null;
+
+    if (isEven) {
+      const xB = sort.length / 2;
+      const xA = xB - 1;
+      const mean = (sort[xA] + sort[xB]) / 2;
+
+      res = mean.toFixed(2);
+    } else {
+      const xRes = (arr.length - 1) / 2;
+      res = sort[xRes];
+    }
+
+    return res;
+  }
+
+  mode() {
+    // build a table num:count
+    const numObj = {};
+
+    this.arr.forEach((ele) => {
+      numObj[ele] = numObj[ele] + 1 || 1;
+    });
+
+    // find the modes
+    let resArr = [];
+    let maxCount = 0;
+
+    for (const key in numObj) {
+      if (numObj[key] > maxCount) {
+        resArr = [key];
+        maxCount = numObj[key];
+      } else if (numObj[key] === maxCount) {
+        resArr.push(key);
+      }
+    }
+
+    return resArr;
+  }
+}
+
+const meanRes = new Calc(arr).mean(); // => 3.45
+const medianRes = new Calc(arr).median(); // => 4
+const modeRes = new Calc(arr).mode(); // => [4, 5]
+```
+
+#### mean
+
+1. get the average number
+
+- `reduce`: add all the elements together, divide the length of the array
+
+2. keep two decimal
+
+- `toFixed(2)`: keep two decimal
+
+#### median
+
+- `sort`: sort the numbers ascending
+- `isEven`: check the numbers length is even or odd
+  - even length: find the two numbers in the middle, calculate the mean of them
+  - odd length: find the one number in the middle
+
+#### mode
+
+1. build a object
+
+- `numObj`: iterate each element in the original array, build an object(table), key is the number self, value is how often the number appear
+
+2. find the modes
+
+- `for...in`: iterate _numObj_ to get the key for each element, which is the number self.
+- `if (numObj[key] > maxCount)`: if the current number's appear count greater than _maxCount_, then the current number-appear-count is _maxCount_, and overwrite the _resArr_ by current key (the number self).
+- `else if (numObj[key] === maxCount)`: if there is another key which has the same number-appear-count like the _maxCount_, then push it to the result.
+
+:::
