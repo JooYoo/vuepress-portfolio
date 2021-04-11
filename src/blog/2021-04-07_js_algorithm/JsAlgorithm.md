@@ -750,3 +750,363 @@ const modeRes = new Calc(arr).mode(); // => [4, 5]
 - `else if (numObj[key] === maxCount)`: if there is another key which has the same number-appear-count like the _maxCount_, then push it to the result.
 
 :::
+
+### Q16. Two Sum
+
+Given an array of numbers, return all pairs that add up to a given sum. The numbers can be used more than once.
+
+```js
+const arr = [1, 2, 2, 3, 4];
+const sum = 4;
+
+twoSum(arr, sum); // => [[2, 2],[3, 1]]
+```
+
+::: details 🔑
+
+#### Solution 1
+
+```js
+const arr = [1, 2, 2, 3, 4];
+const sum = 4;
+
+const twoSum = (arr, sum) => {
+  const prevNums = [];
+  const res = [];
+
+  for (const currNum of arr) {
+    const needNum = sum - currNum;
+
+    if (prevNums.indexOf(needNum) !== -1) {
+      res.push([currNum, needNum]);
+    } else {
+      prevNums.push(currNum);
+    }
+  }
+
+  return res;
+};
+
+twoSum(arr, sum); // => [[2, 2],[3, 1]]
+```
+
+- `for...of`: iterate the input-array to each _currNum_ in every iteration
+- `needNum`: calculate the number we need to meet the sum
+- `if (prevNums.indexOf(needNum) !== -1)`: check if there is already a number exist in the number-lib `prevNums`
+  - number exist: we can combine _currNum_ and _needNum_ as result
+  - number not exist: push the currNum to the number-lib `prevNums`
+
+#### Solution 2
+
+```js
+const arr = [1, 2, 2, 3, 4];
+const sum = 4;
+
+const twoSum = (arr, sum) => {
+  let resArr = [];
+
+  // find the sum pair
+  for (let x = 0; x < arr.length; x++) {
+    for (let y = 0; y < arr.length; y++) {
+      if (x === y) continue;
+
+      if (arr[x] + arr[y] === sum) {
+        resArr.push([arr[x], arr[y]]);
+      }
+    }
+  }
+
+  // remove the repeat
+  for (let x = 0; x < resArr.length; x++) {
+    for (let y = 0; y < resArr.length; y++) {
+      if (x === y) continue;
+
+      if (resArr[x].sort().toString() === resArr[y].sort().toString()) {
+        resArr = resArr.filter((arr) => arr !== resArr[y]);
+      }
+    }
+  }
+
+  return resArr;
+};
+
+twoSum(arr, sum); // => [[2, 2],[3, 1]]
+```
+
+1. find the sum pairs
+
+- nested loop to compare each numbers of the input array
+- `if (x === y) continue;`: skip the current number compare with itself
+
+2. remove the repeat pairs
+
+- nested loop to compare each numbers of the result array
+- `if (resArr[x].sort().toString() === resArr[y].sort().toString())`: sort each element in the resArray, convert to string to compare if the pairs are the same
+- `filter`: only keep the unique pairs
+
+:::
+
+### Q17. Max Profit
+
+Given an array of stock prices, find the minimum buy price and the maximum sell price that produce the greatest profit.
+
+```js
+const pricesA = [2, 1, 5, 3, 4];
+const pricesB = [2, 10, 5, 1, 3];
+
+maxProfit(pricesA); // => [1, 5]
+maxProfit(pricesB); // => [2, 10]
+```
+
+::: details 🔑
+
+```js
+const pricesA = [2, 1, 5, 3, 4];
+const pricesB = [2, 10, 5, 1, 3];
+
+const maxProfit = (prices) => {
+  let res = [];
+
+  let minBuyPrice = null;
+  let maxSellPrice = null;
+
+  const sortPrices = prices.slice().sort((a, b) => a - b);
+
+  for (let i = 0; i < sortPrices.length; i++) {
+    minBuyPrice = sortPrices[i];
+    maxSellPrice = sortPrices[prices.length - 1];
+
+    if (prices.indexOf(minBuyPrice) < prices.indexOf(maxSellPrice)) {
+      res = [minBuyPrice, maxSellPrice];
+      break;
+    }
+  }
+
+  return res;
+};
+
+maxProfit(pricesA); // => [1, 5]
+maxProfit(pricesB); // => [2, 10]
+```
+
+- `sortPrices`: sort the original array ascending
+  - `slice()`: we need this so that the original array not lost its sequence
+  - `sort((a, b) => a - b)`: sort ascending
+- `for`: iterate the _sortPrices_. After sort, the first element should be the smallest one, the last element is the biggest one.
+- `if (prices.indexOf(minBuyPrice) < prices.indexOf(maxSellPrice))`: check if the _minBuyPrice_ is earlier than the _maxSellPrice_ by comparing the index of the original price
+  - yes: found the result, break the loop
+  - no: continue the loop, the 2nd smallest number will try to be the _minBugPrice_
+
+:::
+
+### Q18. Sieve of Eratosthenes
+
+For a given number, find all the prime numbers from zero to that number.
+
+```js
+const num1 = 10;
+const num2 = 19;
+
+getPrimes(num1); // => [2, 3, 5, 7]
+getPrimes(num2); // => [2, 3, 5, 7, 11, 13, 17, 19]
+```
+
+::: details 🔑
+
+```js
+const inputNum = 10;
+
+const isPrime = (num) => {
+  if (num < 2) {
+    return false;
+  }
+
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+const getPrimes = (num) => {
+  const primes = [];
+
+  for (let i = 2; i <= num; i++) {
+    if (isPrime(i)) {
+      primes.push(i);
+    }
+  }
+
+  return primes;
+};
+
+getPrimes(inputNum); // => [2, 3, 5, 7]
+```
+
+1. check if it is prime-number
+
+- The numbers less then 2 are not prime-number
+- `for (let i = 2; i < num; i++)`: iterate the numbers from 2 to before itself
+  - `if (num % i === 0)`: the number can be any of the iteration divided evenly, then the number is not prime-number
+
+2. get all prime-numbers
+
+- iterate the number from 2 to itself, if there is prime-number, then push to result-array
+
+:::
+
+### Q19. Fibonacci
+
+Implement a function that returns the fibonacci number at a given index.
+
+```js
+const index1 = 6;
+const index2 = 10;
+
+getFibonacciNum(index1); // => 8
+getFibonacciNum(index2); // => 55
+```
+
+::: details 🔑
+
+#### Solution 1. regular
+
+```js
+const index = 10;
+
+const getFibonacciNum = (index) => {
+  const fibonaccis = [0];
+
+  let a = 0;
+  let b = 1;
+  let c = 1;
+
+  for (let i = 0; i < index; i++) {
+    fibonaccis.push(c);
+
+    c = a + b;
+    a = b;
+    b = c;
+  }
+
+  return fibonaccis[index];
+};
+
+getFibonacciNum(index); //=> 55
+```
+
+- Fibonacci array: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144...]. 1st element plus 2nd element is 3rd element
+- `fibonaccis`: the default contains 0
+- `a, b, c`: the default of them are the 1st element to 3rd element in FibonacciArray
+- each iterate update the positions for a, b, c
+
+#### Solution 2. recursive function
+
+```js
+const index = 10;
+
+const fib = (i) => {
+  if (i === 0) {
+    return 0;
+  } else if (i < 3) {
+    return 1;
+  } else {
+    return fib(i - 1) + fib(i - 2);
+  }
+};
+
+fib(index); // => 55
+```
+
+- `if (i === 0)`: if the index is 0, the fibNum is 0
+- `else if (i < 3)`: if the index is less than 3, the fibNum is 1
+- `fib(i - 1) + fib(i - 2)`: recursive function, the result of the last one plus the result of the one before last one.
+
+:::
+
+### Q20. Staircase
+
+For a given number of steps, print out a “staircase” using hashes and spaces.
+
+```js
+const layers = 3;
+
+buildStair(layers);
+
+// =>
+//   #
+//  ##
+// ###
+```
+
+::: details 🔑
+
+```js
+const layers = 3;
+
+// N = 3
+// ss#\n i=0
+// s##\n i=1
+// ###\n i=2
+
+const buildStair = (layers) => {
+  let res = '';
+
+  for (let i = 0; i < layers; i++) {
+    let row = '';
+
+    // space
+    for (let j = 0; j < layers - i - 1; j++) {
+      row += ' ';
+    }
+
+    // #
+    for (let k = 0; k < i + 1; k++) {
+      row += '#';
+    }
+
+    // newline
+    row += '\n';
+
+    // res
+    res += row;
+  }
+
+  return res;
+};
+
+buildStair(layers);
+
+/**
+ *   #
+ *  ##
+ * ###
+ */
+```
+
+1. the actully output seems like following:
+
+```js
+// N = 3
+// ss#\n i=0
+// s##\n i=1
+// ###\n i=2
+```
+
+- _N_: in this case 3 layers as the input parameter
+- _i_: the index of iteration
+- _s_: space. It can be write as " " in program.
+  - In each layer, the count of the _s_ is: **N-i-1**
+- #: In each layer, the count of the # is: **i+1**
+
+2. code
+
+- `for (let i = 0; i < layers; i++)`: iterate each layer
+  - `for (let j = 0; j < layers - i - 1; j++)`: in the current layer, create _space_ based on the formular **N-i-1**
+  - `for (let k = 0; k < i + 1; k++)`: in the current layer, create # based on the formula **i+1**
+  - `\n`: end of each layer add newline sign
+  - `res`: add each layer to the result
+
+:::
