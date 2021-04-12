@@ -1110,3 +1110,81 @@ buildStair(layers);
   - `res`: add each layer to the result
 
 :::
+
+### Q21. Pyramid
+
+For a given number of levels, print out a “pyramid” using hashes and spaces.
+
+```js
+const layers = 4;
+buildStair(layers); // =>
+
+//   #
+//  ###
+// #####
+```
+
+::: details 🔑
+
+```js
+const layers = 4;
+
+const buildStair = (layers) => {
+  let res = '';
+
+  for (let i = 0; i < layers; i++) {
+    let row = '';
+
+    // space-left
+    for (let x = 0; x < layers - i - 1; x++) {
+      row += ' ';
+    }
+
+    // #
+    for (let y = 0; y < i * 2 + 1; y++) {
+      row += '#';
+    }
+
+    // space-right
+    for (let z = 0; z < layers - i - 1; z++) {
+      row += ' ';
+    }
+
+    // newline
+    row += '\n';
+
+    // res
+    res += row;
+  }
+
+  return res;
+};
+
+buildStair(layers);
+```
+
+1. The actul output seems like the following:
+
+```js
+// N = 3
+// ss#ss\n i=0
+// s###s\n i=1
+// #####\n i=2
+```
+
+- `N`: how many layer are there
+- `i`: the index of each iteration for every layer
+- `s`: the spaces for each row
+- `#`: the pyramid self. The count of each row can be calculated by `# = i*2+1`
+- `one side space`: each row has two part of spaces, each part can be calulated by `s-one-side = N-i-1`
+
+2. Code
+
+- Iterate layers
+  - for each row: iterate left part of space by `s-one-side = N-i-1`
+  - for each row: iterate pyramid briks by `# = i*2+1`
+  - for each row: iterate right part of space by `s-one-side = N-i-1`
+- `\n`: Add new line in the end of each row
+- Add current row to result
+
+:::
