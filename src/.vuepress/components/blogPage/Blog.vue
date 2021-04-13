@@ -1,7 +1,15 @@
 <template>
   <v-list class="blog-list-container" two-line>
+    /* TODO: 1. get techs display as chips 2. chips color follow techs color 3.
+    click chip to get selection 4. filter posts by selection */
+    <v-chip-group v-model="selection" active-class="active" class="invisible">
+      <v-chip v-for="tag in tags" :key="tag">
+        {{ tag }}
+      </v-chip>
+    </v-chip-group>
+
     <v-list-item-group>
-      <router-link v-for="(page, index) in pages" :to="page.path">
+      <router-link v-for="(page, index) in pages" :key="index" :to="page.path">
         <v-list-item :key="page.title">
           <v-list-item-content>
             <v-list-item-title v-text="page.title"></v-list-item-title>
@@ -30,7 +38,14 @@
 export default {
   data: () => ({
     pages: [],
+
+    // UI template
+    selection: 'Work',
+    tags: ['Work', 'Home Improvement', 'Vacation', 'Food'],
+
+    // UI template finish
   }),
+
   mounted() {
     this.$site.pages.forEach((page) => {
       if (page.frontmatter.type === 'blog') {
@@ -50,5 +65,9 @@ export default {
   height: 100vmin;
   padding-left: 0;
   padding-right: 0;
+}
+
+.invisible {
+  display: none;
 }
 </style>
