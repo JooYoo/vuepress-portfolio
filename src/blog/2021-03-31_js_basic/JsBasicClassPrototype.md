@@ -20,6 +20,7 @@ type: blog
 - 🔗 &nbsp; [Asynchronous](JsBasicAsynchronous.md)
 - 🔗 &nbsp; [Arrow Function](JsBasicArrowFunction.md)
 - 🔗 &nbsp; [Class & Prototype](JsBasicClassPrototype.md)
+- 🔗 &nbsp; [SetTime](JsBasicSetTime.md)
 
 # 🙋🏻‍♂️ Q & A
 
@@ -224,5 +225,43 @@ psp.playEverywhere();
   - `this`: as parameter means the parent Prototype
   - `args`: as parameter means accept all the constructor arguments
 - `Object.create()`: inheritance functions, the parameter is the parent Prototype
+
+:::
+
+### Q6. Revealing module pattern
+
+How to protect the _secretId_ property, prevent it is visit?
+
+```js
+const hero = {
+  name: 'SpideMan',
+  secretId: 7,
+  go: function () {
+    return `${this.name} go!`;
+  },
+};
+
+console.log(hero.secretId, hero.go());
+```
+
+::: details 🔑
+
+```js
+const hero = (function () {
+  const _name = 'SpiderMan';
+  const _secretId = 7;
+
+  const go = () => {
+    return `${_name} go!`;
+  };
+
+  return { _name, go };
+})();
+
+console.log(hero._secretId); // => undefined
+```
+
+- `const hero = ()()`: immediately invoked function. The function will run when the programm start, no need to call it.
+- `return { _name, go };`: only return the properties (include function) which can be visited from outside.
 
 :::

@@ -20,6 +20,7 @@ type: blog
 - 🔗 &nbsp; [Asynchronous](JsBasicAsynchronous.md)
 - 🔗 &nbsp; [Arrow Function](JsBasicArrowFunction.md)
 - 🔗 &nbsp; [Class & Prototype](JsBasicClassPrototype.md)
+- 🔗 &nbsp; [SetTime](JsBasicSetTime.md)
 
 # 🙋🏻‍♂️ Q & A
 

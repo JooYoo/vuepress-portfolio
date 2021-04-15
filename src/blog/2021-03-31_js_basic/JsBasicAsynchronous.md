@@ -20,6 +20,7 @@ type: blog
 - 🔗 &nbsp; [Asynchronous](JsBasicAsynchronous.md)
 - 🔗 &nbsp; [Arrow Function](JsBasicArrowFunction.md)
 - 🔗 &nbsp; [Class & Prototype](JsBasicClassPrototype.md)
+- 🔗 &nbsp; [SetTime](JsBasicSetTime.md)
 
 # 🙋🏻‍♂️ Q & A
 
@@ -293,5 +294,29 @@ getUsers();
 - `await`:
   - before _fetch()_
   - before _json()_
+
+:::
+
+### Q2. What is the output?
+
+```js
+let num = 0;
+async function increment() {
+  num += await 2;
+  console.log(num);
+}
+increment();
+num += 1;
+console.log(num);
+```
+
+::: details 🔑
+
+```js
+// => 1, 2
+```
+
+- `1`: the `num += 1;` will excute first, because `increment()` is delaying.
+- `2`: the `increment()` will run first, which will make the `num += await 2` same like `num = 0 + await2`. And the 0 at this point is already set.
 
 :::
