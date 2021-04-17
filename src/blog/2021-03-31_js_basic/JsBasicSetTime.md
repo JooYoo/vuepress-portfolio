@@ -59,3 +59,36 @@ console.log('e');
 - `setTimeout({},1)` and `setTimeout({},0)`: they are both will delay because of the _setTimeout()_. But the delays are shorter than the _console.log()_ excute process. While the _console.log()_ excute, both of the short _setTimeout()_ are ready to excute. And the time between 0 to 1 have difference by _setTimeout()_
 
 :::
+
+### Q2. How to fix the problem?
+
+```js
+function f() {
+  for (var i = 0; i < 3; i++) {
+    setTimeout(() => {
+      console.log(i);
+    }, 1000 * i);
+  }
+}
+
+f(); // => 3, 3, 3
+```
+
+- How to fix the function, to make it output _0, 1, 2_ ?
+
+::: details 🔑
+
+```js
+function f() {
+  for (let i = 0; i < 3; i++) {
+    setTimeout(() => {
+      console.log(i);
+    }, 1000 * i);
+  }
+}
+```
+
+- `var` has **function scope**, the `i` has the scope inside the function.
+- `let` has **block scope**, the `i` is only available inside of the _for-loop-scope_
+
+:::
