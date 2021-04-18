@@ -86,3 +86,43 @@ arr[0] = 6;
 - valid
 
 :::
+
+### Q5. How to create an array with elements inside?
+
+```js
+createArray(); // => Array.from() // => (5) ["newArr", "newArr", "newArr", undefined, undefined]
+```
+
+::: details 🔑
+
+#### Solution 1
+
+Array.from()
+
+```js
+let a1 = Array.from({ length: 5 }, (n, i) => {
+  if (i < 3) {
+    return (n = 'newArr');
+  }
+  return n;
+});
+console.log(a1); // => (5) ["newArr", "newArr", "newArr", undefined, undefined]
+```
+
+- `Array.from`: It can create an array, which allow to decide the length of the array.
+- `n`: each iteration of the new Array element
+- `i`: the index of the iteration
+
+#### Solution 2
+
+new Array()
+
+```js
+let a2 = new Array(5).fill('newArr', 0, 3);
+console.log(a2); // => (5) ["newArr", "newArr", "newArr", undefined, undefined]
+```
+
+- `new Array(5)`: It creates a new empty array with 5 elements inside
+- `fill('newArr', 0, 2)`: based on the empty elements. The element self is _newArr_, from index `0` element, `2` elements will be excuted.
+
+:::
