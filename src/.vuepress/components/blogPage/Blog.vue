@@ -1,7 +1,12 @@
 <template>
   <v-list class="blog-list-container" two-line>
     <v-chip-group v-model="selection" active-class="active">
-      <v-chip v-for="(value, key) in uKeywords" :key="key">
+      <v-chip
+        v-for="(value, key) in uKeywords"
+        :key="key"
+        outlined
+        :color="getTechColor(key)"
+      >
         {{ key }}
       </v-chip>
     </v-chip-group>
@@ -34,6 +39,7 @@
   </v-list>
 </template>
 <script>
+import JsonTechs from '../../data/techs.json';
 export default {
   // TODO: [x] 1. get techs display as chips
   // 2. chips color follow techs color
@@ -42,12 +48,11 @@ export default {
   data: () => ({
     pages: [],
     uKeywords: {},
+    techs: JsonTechs,
 
     // UI template
     selection: 'Work',
     tags: ['Work', 'Home Improvement', 'Vacation', 'Food'],
-
-    // UI template finish
   }),
 
   mounted() {
@@ -66,6 +71,11 @@ export default {
         this.uKeywords[page.frontmatter.keyword] =
           this.uKeywords[page.frontmatter.keyword] + 1 || 1;
       }
+    },
+    getTechColor: function (name) {
+      const tech = this.techs.find((obj) => obj.name == name);
+      const techColor = tech ? tech.color : '#68217a';
+      return techColor;
     },
   },
 };

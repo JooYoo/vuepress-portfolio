@@ -15,11 +15,11 @@
 </template>
 
 <script>
-import JsonTechs from "../../../data/techs.json";
-import yuIcon from "../../share/yuIcon";
+import JsonTechs from '../../../data/techs.json';
+import yuIcon from '../../share/yuIcon';
 
 export default {
-  name: "yuTechLiftButton",
+  name: 'yuTechLiftButton',
 
   components: {
     yuIcon,
@@ -40,7 +40,7 @@ export default {
 
     setLogoColor: function (name) {
       return {
-        "--logo-color": this.getColor(name),
+        '--logo-color': this.getColor(name),
       };
     },
   },

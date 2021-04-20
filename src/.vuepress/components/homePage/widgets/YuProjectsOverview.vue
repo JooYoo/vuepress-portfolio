@@ -2,7 +2,12 @@
   <v-container class="project-overview__container--main">
     <div class="project-overview__title">Projects</div>
     <v-row>
-      <v-col v-for="(project, index) in projects" sm="12" :md="flexes[index]">
+      <v-col
+        v-for="(project, index) in projects"
+        :key="index"
+        sm="12"
+        :md="flexes[index]"
+      >
         <v-card class="project-overview__card" hover>
           <router-link class="router-nav" :to="project.path">
             <v-img
@@ -45,12 +50,12 @@
 </template>
 
 <script>
-import JsonTechs from "../../../data/techs.json";
-import yuTechProgressbar from "../../projectPage/widgets/YuTechProgressbar";
-import yuTechLiftButton from "../../projectPage/widgets/YuTechLiftButton";
+import JsonTechs from '../../../data/techs.json';
+import yuTechProgressbar from '../../projectPage/widgets/YuTechProgressbar';
+import yuTechLiftButton from '../../projectPage/widgets/YuTechLiftButton';
 
 export default {
-  name: "yuProjectsOverview",
+  name: 'yuProjectsOverview',
 
   components: {
     yuTechProgressbar,
@@ -65,7 +70,7 @@ export default {
 
   mounted() {
     this.$site.pages.forEach((page) => {
-      if (page.frontmatter.type === "project" && page.frontmatter.highlight) {
+      if (page.frontmatter.type === 'project' && page.frontmatter.highlight) {
         this.projects.push(page);
       }
     });
