@@ -1188,3 +1188,27 @@ buildStair(layers);
 - Add current row to result
 
 :::
+
+### Q22. Random Hex Color
+
+How to get a random hex color?
+
+```js
+getHexColor(); //=> #8c2354
+```
+
+::: details 🔑
+
+```js
+function getHexColor() {
+  return `#${Math.random().toString(16).substring(2, 8)}`;
+}
+
+getHexColor(); //=> #8c2354
+```
+
+- `Math.random()`: get a random number between 0 to 1
+- `toString(16)`: convert the current number to string based on 16
+- `substring(2, 8)`: get the part of the string, start from index 2, end to index 8
+
+:::
