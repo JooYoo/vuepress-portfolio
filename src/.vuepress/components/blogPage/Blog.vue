@@ -4,6 +4,7 @@
       v-model="selection"
       class="blog-filter__chip-ground-container"
     >
+      <v-chip :color="primary">A l l</v-chip>
       <v-chip
         v-for="(value, key) in uKeywords"
         :key="key"
@@ -46,7 +47,8 @@ export default {
   // [x] 1. get techs display as chips
   // [x] 2. chips color follow techs color
   // [x] 3. click chip to get selection
-  // 4. filter posts by selection
+  // [x] 4. filter posts by selection
+  // 5. get all post chip
   data: () => ({
     pages: [],
     uKeywords: {},
@@ -77,8 +79,25 @@ export default {
       return techColor;
     },
     getSelection: function (name) {
+      // get the current chip-name as selection
       this.selection = name;
-      console.log(this.selection);
+      // filter pages
+      this.getPagesByKeyword();
+    },
+    // TODO:
+    getPages: function () {},
+    getPagesByKeyword: function () {
+      // clean up pages
+      this.pages = [];
+      // find the pages based on selection
+      this.$site.pages.forEach((page) => {
+        if (
+          page.frontmatter.type === 'blog' &&
+          page.frontmatter.keyword === this.selection
+        ) {
+          this.pages.push(page);
+        }
+      });
     },
   },
 };
