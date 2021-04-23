@@ -4,7 +4,7 @@
       v-model="selection"
       class="blog-filter__chip-ground-container"
     >
-      <v-chip :color="primary">A l l</v-chip>
+      <v-chip @click="getPages()">ALL</v-chip>
       <v-chip
         v-for="(value, key) in uKeywords"
         :key="key"
@@ -57,11 +57,8 @@ export default {
   }),
 
   mounted() {
-    this.$site.pages.forEach((page) => {
-      if (page.frontmatter.type === 'blog') {
-        this.pages.push(page);
-      }
-    });
+    // get data
+    this.getPages();
     // get unique keyword for each page
     this.getUniqueKeywords();
   },
@@ -84,8 +81,13 @@ export default {
       // filter pages
       this.getPagesByKeyword();
     },
-    // TODO:
-    getPages: function () {},
+    getPages: function () {
+      this.$site.pages.forEach((page) => {
+        if (page.frontmatter.type === 'blog') {
+          this.pages.push(page);
+        }
+      });
+    },
     getPagesByKeyword: function () {
       // clean up pages
       this.pages = [];
