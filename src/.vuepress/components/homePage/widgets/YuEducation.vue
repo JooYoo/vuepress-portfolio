@@ -6,6 +6,33 @@
       <v-list subheader>
         <v-subheader inset>
           <v-list-item-title>
+            <span>Fachinformatiker - Anwendungsentwicklung | 2016 ~ 2019</span>
+            <div class="flag-container">
+              <img
+                class="flag-end"
+                src="https://www.flaticon.com/svg/static/icons/svg/197/197571.svg"
+              />
+            </div>
+          </v-list-item-title>
+        </v-subheader>
+
+        <v-list-item three-line>
+          <v-list-item-action>
+            <span class="icon-start">👨🏻‍💻</span>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Software Development</v-list-item-title>
+            <v-list-item-subtitle>Robert-Bosch-Schule Ulm</v-list-item-subtitle>
+            <v-list-item-subtitle>artiso solutions GmbH</v-list-item-subtitle>
+            <v-list-item-subtitle>IHK Ulm</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+      <v-divider></v-divider>
+
+      <v-list subheader>
+        <v-subheader inset>
+          <v-list-item-title>
             <span>Master of Science | 2012 ~ 2014</span>
 
             <div class="flag-container">
@@ -99,7 +126,7 @@
 
 <script>
 export default {
-  name: "yuEduction",
+  name: 'yuEduction',
 
   data: () => ({
     notifications: false,
