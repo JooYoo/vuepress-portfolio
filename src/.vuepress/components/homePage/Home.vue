@@ -23,9 +23,9 @@
       <yuExperience></yuExperience>
     </v-flex>
 
-    <v-flex class="container--training">
+    <!-- <v-flex class="container--training">
       <yuTraining></yuTraining>
-    </v-flex>
+    </v-flex> -->
 
     <v-flex class="container--education">
       <yuEducation></yuEducation>
@@ -95,5 +95,6 @@ export default {
 
 .container--education {
   padding: 40px 25px;
+  background-color: #f5f5f5;
 }
 </style>
