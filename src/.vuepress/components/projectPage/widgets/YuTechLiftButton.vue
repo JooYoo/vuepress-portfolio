@@ -1,7 +1,8 @@
 <template>
   <div class="lift-btn-container">
     <v-bottom-navigation
-      v-for="tech in frontmatterTechs"
+      v-for="(tech, index) in frontmatterTechs"
+      :key="index"
       class="lift-btn-tab"
       shift
       :color="getColor(tech.name)"

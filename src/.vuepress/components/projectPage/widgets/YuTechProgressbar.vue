@@ -1,17 +1,18 @@
 <template>
   <div class="tech-progressbar-container">
     <div
-      v-for="tech in frontmatterTechs"
+      v-for="(tech, index) in frontmatterTechs"
+      :key="index"
       :style="setTechProgressUI(tech)"
     ></div>
   </div>
 </template>
 
 <script>
-import JsonTechs from "../../../data/techs.json";
+import JsonTechs from '../../../data/techs.json';
 
 export default {
-  name: "yuTechProgressbar",
+  name: 'yuTechProgressbar',
 
   data: () => ({
     techs: JsonTechs,

@@ -2,7 +2,8 @@
   <div class="skill-progressbar-container">
     <div
       class="skill-progressbar"
-      v-for="usedTech in usedTechs"
+      v-for="(usedTech, index) in usedTechs"
+      :key="index"
       :style="
         setTechProgressUI(
           usedTech,

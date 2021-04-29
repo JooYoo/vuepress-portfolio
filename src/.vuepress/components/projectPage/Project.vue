@@ -2,7 +2,7 @@
   <v-app class="project-container">
     <v-container fluid grid-list-xl>
       <v-layout row wrap>
-        <v-flex xs12 md6 v-for="page in pages">
+        <v-flex xs12 md6 v-for="(page, index) in pages" :key="index">
           <v-card class="project-overview__card rounded-card" hover>
             <router-link class="router-nav" :to="page.path">
               <v-img
@@ -33,9 +33,9 @@
 </template>
 
 <script>
-import JsonTechs from "../../data/techs.json";
-import yuTechProgressbar from "./widgets/YuTechProgressbar";
-import yuTechLiftButton from "./widgets/YuTechLiftButton";
+import JsonTechs from '../../data/techs.json';
+import yuTechProgressbar from './widgets/YuTechProgressbar';
+import yuTechLiftButton from './widgets/YuTechLiftButton';
 
 export default {
   components: {
@@ -50,7 +50,7 @@ export default {
 
   mounted() {
     this.$site.pages.forEach((page) => {
-      if (page.frontmatter.type === "project") {
+      if (page.frontmatter.type === 'project') {
         this.pages.push(page);
       }
     });

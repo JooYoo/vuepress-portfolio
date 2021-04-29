@@ -43,12 +43,6 @@
 <script>
 import JsonTechs from '../../data/techs.json';
 export default {
-  // TODO:
-  // [x] 1. get techs display as chips
-  // [x] 2. chips color follow techs color
-  // [x] 3. click chip to get selection
-  // [x] 4. filter posts by selection
-  // 5. get all post chip
   data: () => ({
     pages: [],
     uKeywords: {},

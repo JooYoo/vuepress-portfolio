@@ -25,7 +25,7 @@
         </v-list-item>
 
         <div class="skill-logo__container flex-wrap">
-          <span v-for="tech in usedLanguages">
+          <span v-for="(tech, index) in usedLanguages" :key="index">
             <yuSkillLogo
               :logo="tech.logo"
               :name="tech.name"
@@ -69,7 +69,7 @@
         </v-list-item>
 
         <div class="skill-logo__container flex-wrap">
-          <span v-for="tech in usedFrameworks">
+          <span v-for="(tech, index) in usedFrameworks" :key="index">
             <yuSkillLogo
               :logo="tech.logo"
               :name="tech.name"
