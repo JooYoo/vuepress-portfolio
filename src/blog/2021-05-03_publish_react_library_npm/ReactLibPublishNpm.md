@@ -310,6 +310,40 @@ $ npm run build
 
 ### Step 5. publish the library
 
+1. add `components/.npmignore`, so that we will not publish our source code to npm, we only want to publish the compliled code.
+
+```bash
+
+YuButton
+YuCard
+.babelrc
+rollup.config.js
+## node modules folder
+node_modules
+## incase you have a git repositiory initiated
+.git
+.gitignore
+CVS
+.svn
+.hg
+.lock-wscript
+.wafpickle-N
+.DS_Store
+npm-debug.log
+.npmrc
+
+config.gypi
+package-lock.json
+```
+
+2. add `components/.gitignore`, to ignore _node_modules_
+
+```bash
+/node_modules
+```
+
+3. publish to npm
+
 - login to \_npmjs.com
 
 ```bash
