@@ -18,7 +18,7 @@ When I develop my own projects, some of the UI-Components are the same. I don't 
 
 ## 🎯 Goal
 
-Create a simple UI-Component Library by React, publish to `npmjs.con`.
+Create a simple UI-Component Library by React, publish to `npmjs.com`.
 
 ## 🦶🏻 Steps
 
@@ -379,3 +379,11 @@ $ npm unpublish <package-name> -f
 ```bash
 $ npm unpublish <package-name>@<version>
 ```
+
+### Troubleshooting
+
+::: danger ERROR
+Error: PostCSS plugin autoprefixer requires PostCSS 8. Update PostCSS or downgrade this plugin
+:::
+
+- Try to to run `npm i postcss` at `components/`
