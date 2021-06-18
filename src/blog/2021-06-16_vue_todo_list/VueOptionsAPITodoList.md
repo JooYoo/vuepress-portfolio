@@ -46,6 +46,7 @@ create a simple **Todo List** with following features:
 ## ⛓ Link to
 
 - 🔗 &nbsp; [Vue Options API: TodoList](VueOptionsAPITodoList.md)
+- 🔗 &nbsp; [Vue Options API: TodoList x REST API](VueOptionsAPITodoListRestAPI.md)
 - 🔗 &nbsp; [Vue Composition API: TodoList](VueCompositionAPITodoList.md)
 
 ## 🌲 File Structure
