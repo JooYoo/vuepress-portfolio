@@ -11,6 +11,8 @@
 
 A website to introduce myself, list the projects I developed in my free time, share what I've learned about development.
 
+# Preview
+
 <p align="center">
 <kbd>
 <img src="https://media1.giphy.com/media/AKamuejzQCIp40xv87/giphy.gif" />
