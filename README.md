@@ -1,5 +1,5 @@
 <h1 align="center">Yu Portfolio</h1>
-<div align="center">2020.5 ~ Now</div>
+<div align="center">2020.05 ~ 2020.10</div>
 
 <p align="center">
   <strong>
